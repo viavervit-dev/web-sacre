@@ -7,6 +7,26 @@ import { defineConfig, globalIgnores } from 'eslint/config';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import prettier from 'eslint-plugin-prettier';
 
+const noDefaultExportsRule = {
+	selector: 'ExportDefaultDeclaration',
+	message:
+		'Usá named exports en src/. Los default exports están prohibidos por la convención del proyecto.',
+};
+
+const noLongRelativeImportsRule = {
+	selector:
+		'ImportDeclaration[source.value=/^(\\.\\.\\/){2,}|^\\.\\.\\/[^/]+\\/.+/]',
+	message:
+		'No uses imports relativos largos en src/. Si el módulo no es local al archivo o carpeta inmediata, usá el alias @/.',
+};
+
+const noLongRelativeReExportsRule = {
+	selector:
+		'ExportNamedDeclaration[source.value=/^(\\.\\.\\/){2,}|^\\.\\.\\/[^/]+\\/.+/], ExportAllDeclaration[source.value=/^(\\.\\.\\/){2,}|^\\.\\.\\/[^/]+\\/.+/]',
+	message:
+		'No re-exportes con paths relativos largos en src/. Si el módulo no es local, usá el alias @/.',
+};
+
 export default defineConfig([
 	globalIgnores(['dist']),
 	{
@@ -49,10 +69,73 @@ export default defineConfig([
 		rules: {
 			'no-restricted-syntax': [
 				'error',
+				noDefaultExportsRule,
+				noLongRelativeImportsRule,
+				noLongRelativeReExportsRule,
+			],
+		},
+	},
+	{
+		files: ['src/pages/**/*.{ts,tsx}'],
+		rules: {
+			'no-restricted-imports': [
+				'error',
 				{
-					selector: 'ExportDefaultDeclaration',
-					message:
-						'Usá named exports en src/. Los default exports están prohibidos por la convención del proyecto.',
+					patterns: [
+						{
+							group: ['@/api/*'],
+							message:
+								'Las pages no hablan directo con la API. Orquestan componentes y stores.',
+						},
+					],
+				},
+			],
+		},
+	},
+	{
+		files: ['src/components/**/*.{ts,tsx}'],
+		rules: {
+			'no-restricted-imports': [
+				'error',
+				{
+					patterns: [
+						{
+							group: ['@/api/*'],
+							message:
+								'Los componentes no llaman a la API. Reciben datos por props o composición.',
+						},
+						{
+							group: ['@/stores/*'],
+							message:
+								'Los componentes no acceden directo a stores. Esa orquestación vive en pages.',
+						},
+						{
+							group: ['@/pages/*'],
+							message:
+								'Los componentes reutilizables no deben depender de pages.',
+						},
+					],
+				},
+			],
+		},
+	},
+	{
+		files: ['src/stores/**/*.{ts,tsx}'],
+		rules: {
+			'no-restricted-imports': [
+				'error',
+				{
+					patterns: [
+						{
+							group: ['@/pages/*'],
+							message:
+								'Los stores no dependen de pages. El flujo correcto es page -> store -> api.',
+						},
+						{
+							group: ['@/components/*'],
+							message: 'Los stores no deben depender de componentes de UI.',
+						},
+					],
 				},
 			],
 		},
