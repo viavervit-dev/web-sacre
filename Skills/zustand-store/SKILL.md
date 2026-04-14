@@ -6,7 +6,7 @@ description: >
 license: Apache-2.0
 metadata:
   author: ignadev
-  version: "1.0.0"
+  version: "1.1.0"
   scope:
     - root
   auto_invoke:
@@ -86,14 +86,56 @@ metadata:
    const store = useCartStore()
    ```
 
+6. **Las llamadas a API nunca van en componentes** — un componente no sabe de donde vienen los datos, solo los usa. Las peticiones HTTP viven en `src/api/`, y las acciones del store las invocan. El componente llama a la accion del store, punto.
+
+   ```ts
+   // src/api/products.api.ts
+   export async function fetchProducts(): Promise<Product[]> {
+     const res = await fetch('/api/products')
+     return res.json()
+   }
+   ```
+
+   ```ts
+   // src/stores/useProductStore.ts
+   import { fetchProducts } from '../api/products.api'
+
+   interface ProductState {
+     products: Product[]
+     isLoading: boolean
+     load: () => Promise<void>
+   }
+
+   export const useProductStore = create<ProductState>()((set) => ({
+     products: [],
+     isLoading: false,
+     load: async () => {
+       set({ isLoading: true })
+       const products = await fetchProducts()
+       set({ products, isLoading: false })
+     },
+   }))
+   ```
+
+   ```tsx
+   // src/components/ProductList/ProductList.tsx
+   export function ProductList() {
+     const products = useProductStore((state) => state.products)
+     const load = useProductStore((state) => state.load)
+     // el componente no sabe nada de fetch ni de URLs
+   }
+   ```
+
 ## Estructura de archivos
 
 ```
 src/
+├── api/
+│   └── products.api.ts          ← peticiones HTTP, sin estado
 └── stores/
-    ├── useCartStore.ts          ← un archivo por store
+    ├── useProductStore.ts        ← consume api/, maneja estado
     └── __tests__/
-        └── useCartStore.test.ts ← tests del store sin JSX
+        └── useProductStore.test.ts
 ```
 
 ## Camino simple, no facil
@@ -108,4 +150,5 @@ Antes de crear un store, preguntarse: ¿dos componentes diferentes necesitan lee
 - [ ] Acciones dentro del `create`, no afuera.
 - [ ] Los componentes usan selectores, no el store entero.
 - [ ] Archivo en `src/stores/` con nombre `use[Dominio]Store.ts`.
+- [ ] Las llamadas HTTP estan en `src/api/`, no en el store ni en componentes.
 - [ ] Tiene test en `src/stores/__tests__/`.
