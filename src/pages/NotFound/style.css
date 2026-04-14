@@ -1,1 +1,13 @@
-/* NotFound page styles */
+.not-found-page {
+	display: grid;
+	gap: 16px;
+	place-content: center;
+	min-height: 100svh;
+	padding: 48px 24px;
+	box-sizing: border-box;
+}
+
+.not-found-page__link {
+	color: var(--accent);
+	font-weight: 600;
+}
