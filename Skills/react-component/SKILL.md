@@ -6,7 +6,7 @@ description: >
 license: Apache-2.0
 metadata:
   author: ignadev
-  version: "1.0.0"
+  version: "1.1.0"
   scope:
     - root
   auto_invoke:
@@ -67,18 +67,45 @@ metadata:
 
 4. **Sin logica de negocio en componentes presentacionales** — si el componente necesita llamar a una API, leer un store o calcular derivados complejos, ese codigo va en el padre (pagina) o en un custom hook.
 
-5. **Sin estilos inline** — usar clases CSS. Los tokens globales viven en `src/index.css`.
+5. **Cada componente vive en su propia carpeta PascalCase** — la carpeta tiene el mismo nombre que el componente. Dentro van el `.tsx`, el `style.css` y la carpeta `__tests__/`. Sin excepciones.
+
+   ```
+   Hero/
+   ├── Hero.tsx
+   ├── style.css        ← siempre se llama style.css
+   └── __tests__/
+       └── Hero.test.tsx
+   ```
+
+6. **`style.css` obligatorio por componente** — cada componente tiene su propio archivo de estilos llamado exactamente `style.css`. Sin estilos inline, sin nombres alternativos (`Hero.css`, `styles.css`). Los tokens globales viven en `src/index.css`.
+
+7. **Carpetas agrupadores en minuscula** — si dentro de `components/` se necesita agrupar componentes por tema (ej: todos los cards juntos), esa carpeta agrupadora va en minuscula. PascalCase esta reservado para carpetas que son componentes.
+
+   ```
+   components/
+   ├── Hero/          ← PascalCase: ES un componente
+   └── cards/         ← minuscula: agrupa componentes, NO es un componente
+       ├── ProductCard/
+       └── CategoryCard/
+   ```
 
 ## Estructura de carpetas
 
 ```
 src/
-├── components/      ← componentes reutilizables (sin logica de dominio)
-│   └── ProductCard/
-│       ├── ProductCard.tsx
-│       └── __tests__/
-│           └── ProductCard.test.tsx
-├── pages/           ← una pagina = una ruta del router
+├── components/
+│   ├── Hero/                    ← PascalCase: componente directo
+│   │   ├── Hero.tsx
+│   │   ├── style.css
+│   │   └── __tests__/
+│   │       └── Hero.test.tsx
+│   └── cards/                   ← minuscula: carpeta agrupadora
+│       └── ProductCard/
+│           ├── ProductCard.tsx
+│           ├── style.css
+│           └── __tests__/
+│               └── ProductCard.test.tsx
+├── pages/
 │   └── HomePage.tsx
 └── router/
     └── index.tsx
@@ -92,7 +119,10 @@ No crear un componente "por si acaso lo uso despues". Un componente nace cuando 
 
 - [ ] Named export (no default).
 - [ ] Archivo nombrado igual que el componente.
+- [ ] El componente vive en su carpeta PascalCase.
+- [ ] Tiene `style.css` dentro de su carpeta.
 - [ ] Props tipadas con interface.
 - [ ] Sin logica de negocio si es presentacional.
 - [ ] Sin estilos inline.
+- [ ] Si agrupa componentes, la carpeta agrupadora es minuscula.
 - [ ] Tiene test en `__tests__/`.
