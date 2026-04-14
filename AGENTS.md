@@ -44,8 +44,10 @@ Si dos fuentes se contradicen, gana la de mayor precedencia.
 
 ## Skills activas
 
-| Skill                          | Cuando activar                               |
-| ------------------------------ | -------------------------------------------- |
-| `Skills/react-component/SKILL.md` | Crear o modificar componentes React       |
-| `Skills/testing/SKILL.md`      | Escribir o modificar tests                   |
-| `Skills/zustand-store/SKILL.md`| Crear o modificar stores de Zustand          |
+| Skill                              | Cuando activar                              |
+| ---------------------------------- | ------------------------------------------- |
+| `Skills/react-component/SKILL.md`  | Crear o modificar componentes React         |
+| `Skills/testing/SKILL.md`          | Escribir o modificar tests                  |
+| `Skills/zustand-store/SKILL.md`    | Crear o modificar stores de Zustand         |
+| `Skills/skill-creator/SKILL.md`    | Crear una skill nueva para el proyecto      |
+| `Skills/skill-sync/SKILL.md`       | Auditar y sincronizar skills con AGENTS.md  |
