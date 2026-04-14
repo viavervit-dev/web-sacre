@@ -44,4 +44,17 @@ export default defineConfig([
 			'object-shorthand': ['warn', 'always'],
 		},
 	},
+	{
+		files: ['src/**/*.{ts,tsx}'],
+		rules: {
+			'no-restricted-syntax': [
+				'error',
+				{
+					selector: 'ExportDefaultDeclaration',
+					message:
+						'Usá named exports en src/. Los default exports están prohibidos por la convención del proyecto.',
+				},
+			],
+		},
+	},
 ]);
