@@ -49,5 +49,7 @@ Si dos fuentes se contradicen, gana la de mayor precedencia.
 | `Skills/react-component/SKILL.md`  | Crear o modificar componentes React         |
 | `Skills/testing/SKILL.md`          | Escribir o modificar tests                  |
 | `Skills/zustand-store/SKILL.md`    | Crear o modificar stores de Zustand         |
+| `Skills/commits/SKILL.md`          | Escribir o revisar mensajes de commit       |
+| `Skills/pull-request/SKILL.md`     | Abrir o revisar un Pull Request en GitHub   |
 | `Skills/skill-creator/SKILL.md`    | Crear una skill nueva para el proyecto      |
 | `Skills/skill-sync/SKILL.md`       | Auditar y sincronizar skills con AGENTS.md  |
