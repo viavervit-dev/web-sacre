@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 import medalAngel from '@/assets/medal-angel.jpg';
 import medalCrucifix from '@/assets/medal-crucifix.jpg';
@@ -11,6 +12,7 @@ import {
 import './style.css';
 
 const initialVisibleProducts = 6;
+const sectionEase = [0.16, 1, 0.3, 1] as const;
 
 const products: ProductCardProduct[] = [
 	{
@@ -111,7 +113,13 @@ export function CollectionsSection({ onAddProduct }: CollectionsSectionProps) {
 			aria-labelledby="collections-title"
 		>
 			<div className="collections-section__inner sacre-container">
-				<header className="collections-section__header">
+				<motion.header
+					className="collections-section__header"
+					initial={{ opacity: 0, y: 40 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true, margin: '-100px' }}
+					transition={{ duration: 0.8, ease: sectionEase }}
+				>
 					<p className="collections-section__eyebrow">Tesoros de fe</p>
 					<h2
 						id="collections-title"
@@ -124,13 +132,14 @@ export function CollectionsSection({ onAddProduct }: CollectionsSectionProps) {
 						Piezas devocionales con lenguaje de joyeria, seleccionadas para
 						regalar, atesorar y acompanar la oracion diaria.
 					</p>
-				</header>
+				</motion.header>
 
 				<div id="collections-products" className="collections-section__grid">
-					{visibleProducts.map(product => (
+					{visibleProducts.map((product, index) => (
 						<ProductCard
 							key={product.id}
 							product={product}
+							index={index}
 							onAdd={onAddProduct}
 						/>
 					))}

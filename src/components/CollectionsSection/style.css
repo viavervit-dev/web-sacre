@@ -24,7 +24,6 @@
 	justify-self: center;
 	justify-items: center;
 	text-align: center;
-	animation: collections-header-enter 720ms var(--ease-out) both;
 }
 
 .collections-section__eyebrow {
@@ -151,18 +150,6 @@
 	bottom: -4px;
 	border-right: 1px solid;
 	border-bottom: 1px solid;
-}
-
-@keyframes collections-header-enter {
-	from {
-		opacity: 0;
-		transform: translateY(32px);
-	}
-
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
 }
 
 @media (min-width: 680px) {

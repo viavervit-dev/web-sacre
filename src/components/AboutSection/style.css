@@ -39,7 +39,6 @@
 	justify-self: center;
 	justify-items: center;
 	text-align: center;
-	animation: about-intro-enter 720ms var(--ease-out) both;
 }
 
 .about-section__eyebrow {
@@ -171,18 +170,6 @@
 	font-style: italic;
 	line-height: 1.58;
 	color: var(--color-text-muted);
-}
-
-@keyframes about-intro-enter {
-	from {
-		opacity: 0;
-		transform: translateY(32px);
-	}
-
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
 }
 
 @media (min-width: 760px) {

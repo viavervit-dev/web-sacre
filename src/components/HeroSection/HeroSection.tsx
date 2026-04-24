@@ -1,5 +1,8 @@
+import { motion } from 'framer-motion';
 import heroMedals from '@/assets/hero-medals.jpg';
 import './style.css';
+
+const heroEase = [0.16, 1, 0.3, 1] as const;
 
 export function HeroSection() {
 	return (
@@ -15,21 +18,51 @@ export function HeroSection() {
 				/>
 			</div>
 
-			<div className="hero-section__content sacre-container">
-				<div className="hero-section__ornament" aria-hidden="true" />
-				<p className="hero-section__eyebrow">
+			<motion.div
+				className="hero-section__content sacre-container"
+				initial={{ opacity: 0, y: 40 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 1.05, ease: heroEase }}
+			>
+				<motion.div
+					className="hero-section__ornament"
+					aria-hidden="true"
+					initial={{ opacity: 0, scale: 0.58 }}
+					animate={{ opacity: 1, scale: 1 }}
+					transition={{ duration: 0.72, delay: 0.25, ease: heroEase }}
+				/>
+				<motion.p
+					className="hero-section__eyebrow"
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{ duration: 0.72, delay: 0.42, ease: heroEase }}
+				>
 					Desde el corazon de la tradicion
-				</p>
-				<h1 id="hero-title" className="hero-section__title text-gold-gradient">
+				</motion.p>
+				<motion.h1
+					id="hero-title"
+					className="hero-section__title text-gold-gradient"
+					initial={{ opacity: 0, y: 22 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.9, delay: 0.62, ease: heroEase }}
+				>
 					Sacre
-				</h1>
-				<p className="hero-section__lead">
+				</motion.h1>
+				<motion.p
+					className="hero-section__lead"
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{ duration: 0.72, delay: 0.9, ease: heroEase }}
+				>
 					Medallitas y articulos sacros elegidos con devocion, inspirados en
 					siglos de arte, fe y belleza catolica.
-				</p>
-				<div
+				</motion.p>
+				<motion.div
 					className="hero-section__actions"
 					aria-label="Acciones principales"
+					initial={{ opacity: 0, y: 18 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.72, delay: 1.12, ease: heroEase }}
 				>
 					<a
 						className="hero-section__cta hero-section__cta--primary"
@@ -43,8 +76,8 @@ export function HeroSection() {
 					>
 						Nuestra historia
 					</a>
-				</div>
-			</div>
+				</motion.div>
+			</motion.div>
 		</section>
 	);
 }

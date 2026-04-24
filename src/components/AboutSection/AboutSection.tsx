@@ -1,4 +1,7 @@
+import { motion } from 'framer-motion';
 import './style.css';
+
+const aboutEase = [0.16, 1, 0.3, 1] as const;
 
 const values = [
 	{
@@ -22,7 +25,13 @@ export function AboutSection() {
 	return (
 		<section id="about" className="about-section" aria-labelledby="about-title">
 			<div className="about-section__inner sacre-container">
-				<div className="about-section__intro">
+				<motion.div
+					className="about-section__intro"
+					initial={{ opacity: 0, y: 40 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true, margin: '-100px' }}
+					transition={{ duration: 0.8, ease: aboutEase }}
+				>
 					<p className="about-section__eyebrow">Nuestra esencia</p>
 					<h2
 						id="about-title"
@@ -36,17 +45,28 @@ export function AboutSection() {
 						rosario esta elegido para unir fe, oficio y una estetica que no pide
 						permiso.
 					</p>
-				</div>
+				</motion.div>
 
 				<div className="about-section__values" aria-label="Valores de Sacre">
-					{values.map(value => (
-						<article className="about-section__value" key={value.title}>
+					{values.map((value, index) => (
+						<motion.article
+							className="about-section__value"
+							key={value.title}
+							initial={{ opacity: 0, y: 36 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true, margin: '-80px' }}
+							transition={{
+								duration: 0.72,
+								delay: 0.14 + index * 0.12,
+								ease: aboutEase,
+							}}
+						>
 							<span className="about-section__value-mark" aria-hidden="true" />
 							<h3 className="about-section__value-title">{value.title}</h3>
 							<p className="about-section__value-description">
 								{value.description}
 							</p>
-						</article>
+						</motion.article>
 					))}
 				</div>
 			</div>

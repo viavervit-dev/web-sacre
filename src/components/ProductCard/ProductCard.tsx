@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import './style.css';
 
 export interface ProductCardProduct {
@@ -12,8 +13,11 @@ export interface ProductCardProduct {
 
 interface ProductCardProps {
 	product: ProductCardProduct;
+	index?: number;
 	onAdd?: (product: ProductCardProduct) => void;
 }
+
+const cardEase = [0.16, 1, 0.3, 1] as const;
 
 const currencyFormatter = new Intl.NumberFormat('es-AR', {
 	style: 'currency',
@@ -21,12 +25,22 @@ const currencyFormatter = new Intl.NumberFormat('es-AR', {
 	maximumFractionDigits: 0,
 });
 
-export function ProductCard({ product, onAdd }: ProductCardProps) {
+export function ProductCard({ product, index = 0, onAdd }: ProductCardProps) {
 	const formattedPrice = currencyFormatter.format(product.price);
 	const actionLabel = `Agregar ${product.title} al carrito`;
 
 	return (
-		<article className="product-card">
+		<motion.article
+			className="product-card"
+			initial={{ opacity: 0, y: 56 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true, margin: '-80px' }}
+			transition={{
+				duration: 0.68,
+				delay: (index % 3) * 0.1,
+				ease: cardEase,
+			}}
+		>
 			<div className="product-card__media">
 				<img
 					className="product-card__image"
@@ -70,6 +84,6 @@ export function ProductCard({ product, onAdd }: ProductCardProps) {
 					</button>
 				</div>
 			</div>
-		</article>
+		</motion.article>
 	);
 }
