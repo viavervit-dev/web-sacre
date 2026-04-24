@@ -1,0 +1,124 @@
+.site-footer {
+	border-top: 1px solid rgba(215, 169, 67, 0.16);
+	background:
+		radial-gradient(
+			circle at 50% 0%,
+			rgba(215, 169, 67, 0.12),
+			transparent 22rem
+		),
+		#0c0907;
+	padding: clamp(56px, 8vw, 88px) 0;
+}
+
+.site-footer__inner {
+	display: grid;
+	min-width: 0;
+	justify-items: center;
+	text-align: center;
+}
+
+.site-footer__brand {
+	max-width: 100%;
+	font-size: clamp(2rem, 5vw, 3rem);
+	font-weight: 800;
+	letter-spacing: 0.28em;
+	line-height: 1;
+	text-transform: uppercase;
+}
+
+.site-footer__tagline {
+	max-width: 100%;
+	margin-top: 8px;
+	font-family: var(--font-sans);
+	font-size: 0.68rem;
+	font-weight: 700;
+	letter-spacing: 0.42em;
+	text-transform: uppercase;
+	color: var(--color-text-muted);
+}
+
+.site-footer__quote {
+	max-width: 100%;
+	margin: 32px 0 0;
+	color: var(--color-text-muted);
+}
+
+.site-footer__quote p {
+	font-size: 1.18rem;
+	font-style: italic;
+}
+
+.site-footer__quote cite {
+	display: block;
+	margin-top: 8px;
+	font-family: var(--font-sans);
+	font-size: 0.72rem;
+	font-style: normal;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+}
+
+.site-footer__ornament {
+	width: min(100%, 280px);
+	height: 1px;
+	margin-top: 34px;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		rgba(215, 169, 67, 0.64),
+		transparent
+	);
+}
+
+.site-footer__links {
+	display: flex;
+	min-width: 0;
+	max-width: 100%;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 16px clamp(24px, 5vw, 44px);
+	margin-top: 32px;
+}
+
+@media (max-width: 360px) {
+	.site-footer__brand {
+		font-size: 1.85rem;
+		letter-spacing: 0.18em;
+	}
+
+	.site-footer__tagline {
+		font-size: 0.62rem;
+		letter-spacing: 0.22em;
+	}
+
+	.site-footer__link {
+		letter-spacing: 0.14em;
+	}
+}
+
+.site-footer__link {
+	display: inline-flex;
+	min-height: 44px;
+	align-items: center;
+	font-family: var(--font-sans);
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--color-text-muted);
+	transition:
+		color var(--duration-normal) var(--ease-out),
+		transform var(--duration-normal) var(--ease-out);
+}
+
+.site-footer__link:hover {
+	color: var(--color-gold-light);
+	transform: translateY(-2px);
+}
+
+.site-footer__legal {
+	margin-top: 36px;
+	font-family: var(--font-sans);
+	font-size: 0.72rem;
+	color: rgba(184, 169, 143, 0.62);
+}
