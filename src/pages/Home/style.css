@@ -1,20 +1,13 @@
 .home-page {
-	display: grid;
-	gap: 16px;
-	place-content: center;
 	min-height: 100svh;
-	padding: 48px 24px;
-	box-sizing: border-box;
+	overflow: clip;
+	background: var(--color-bg);
 }
 
-.home-page__eyebrow {
-	text-transform: uppercase;
-	letter-spacing: 0.12em;
-	font-size: 0.75rem;
-	color: var(--accent);
+.home-page__main {
+	min-height: 100svh;
 }
 
-.home-page__lead {
-	max-width: 32rem;
-	margin: 0 auto;
+.home-page section {
+	scroll-margin-top: calc(var(--header-height) + 24px);
 }
