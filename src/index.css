@@ -1,111 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+	--color-bg: #120f0b;
+	--color-bg-soft: #1c1712;
+	--color-surface: #211a13;
+	--color-surface-elevated: #2a2118;
+	--color-text: #f3ead7;
+	--color-text-muted: #b8a98f;
+	--color-border: rgba(208, 162, 74, 0.2);
+	--color-gold: #d7a943;
+	--color-gold-light: #f1d48a;
+	--color-gold-dark: #9d6f1f;
+	--color-burgundy: #67283a;
+	--color-focus: #f1d48a;
+	--gold-gradient: linear-gradient(
+		135deg,
+		var(--color-gold-light) 0%,
+		var(--color-gold) 45%,
+		var(--color-gold-dark) 100%
+	);
+	--surface-gradient: linear-gradient(145deg, #211a13 0%, #15110d 100%);
+	--shadow-sacred: 0 24px 80px rgba(0, 0, 0, 0.38);
+	--container-max: 1180px;
+	--header-height: 82px;
+	--z-header: 50;
+	--z-overlay: 70;
+	--z-drawer: 80;
+	--duration-fast: 160ms;
+	--duration-normal: 260ms;
+	--duration-slow: 700ms;
+	--ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+	--font-display: 'Cinzel', Georgia, serif;
+	--font-body: 'Cormorant Garamond', Georgia, serif;
+	--font-sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+	--font-mono: ui-monospace, Consolas, monospace;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+	font: 18px/1.6 var(--font-body);
+	letter-spacing: 0.01em;
+	color-scheme: dark;
+	color: var(--color-text);
+	background: var(--color-bg);
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+* {
+	box-sizing: border-box;
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+html {
+	width: 100%;
+	max-width: 100%;
+	overflow-x: clip;
+	background: var(--color-bg);
+	scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
+	width: 100%;
+	max-width: 100%;
+	overflow-x: clip;
+	margin: 0;
+	background:
+		radial-gradient(circle at top left, rgba(215, 169, 67, 0.1), transparent 30rem),
+		linear-gradient(180deg, #120f0b 0%, #0c0907 100%);
+}
+
+body::selection {
+	color: #120f0b;
+	background: var(--color-gold-light);
+}
+
+#root {
+	width: 100%;
+	max-width: 100%;
+	min-height: 100svh;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+button,
+a {
+	-webkit-tap-highlight-color: transparent;
+}
+
+button {
+	font: inherit;
+}
+
+img {
+	display: block;
+	max-width: 100%;
 }
 
 h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+h2,
+h3,
+p {
+	margin: 0;
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
+h1,
+h2,
+h3 {
+	font-family: var(--font-display);
+	font-weight: 600;
+	color: var(--color-text);
 }
 
 code,
 .counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+	display: inline-flex;
+	border-radius: 4px;
+	font-family: var(--font-mono);
+	color: var(--color-text);
 }
 
 code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+	padding: 4px 8px;
+	background: var(--color-surface-elevated);
+	font-size: 15px;
+	line-height: 1.35;
+}
+
+:focus-visible {
+	outline: 2px solid var(--color-focus);
+	outline-offset: 4px;
+}
+
+.text-gold-gradient {
+	background: var(--gold-gradient);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+
+.sacre-container {
+	width: min(calc(100% - 32px), var(--container-max));
+	max-width: var(--container-max);
+	min-width: 0;
+	margin-inline: auto;
+}
+
+@media (max-width: 360px) {
+	.sacre-container {
+		width: min(calc(100% - 24px), var(--container-max));
+	}
+}
+
+@media (max-width: 768px) {
+	:root {
+		font-size: 16px;
+		--header-height: 72px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		scroll-behavior: auto !important;
+		animation-duration: 1ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 1ms !important;
+	}
 }
