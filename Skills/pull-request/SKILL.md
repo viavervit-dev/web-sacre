@@ -6,7 +6,7 @@ description: >
 license: Apache-2.0
 metadata:
   author: ignadev
-  version: "1.0.0"
+  version: "1.0.1"
   scope:
     - root
   auto_invoke:
@@ -53,12 +53,16 @@ docs/readme-stack
 
 ## Titulo del PR
 
-Mismo formato que un commit: `tipo: descripcion en minusculas`.
-El titulo debe describir el proposito completo de la rama, no el ultimo commit.
+El titulo del PR **no usa formato de commit convencional**.
+No agregar prefijos como `add:`, `refactor:`, `chore:` ni scopes.
+
+Tiene que ser una descripcion humana, corta y clara del proposito completo de la rama, no del ultimo commit.
+La metadata convencional, labels o clasificacion se agregan donde corresponda, no en el titulo.
 
 ```
-add: pagina de listado de productos con filtros
-refactor: separar logica de api del store de productos
+Primera version de la home
+Listado de productos con filtros
+Separacion de logica de api del store de productos
 ```
 
 ## Descripcion del PR
@@ -101,7 +105,7 @@ Es mas facil meter todo en un PR grande "para terminar rapido". El camino simple
 ## Checklist rapido
 
 - [ ] La rama sigue el formato `tipo/descripcion-en-kebab-case`.
-- [ ] El titulo del PR sigue el formato de commit.
+- [ ] El titulo del PR es una descripcion humana, sin prefijo convencional de commit.
 - [ ] La descripcion responde que, por que y como probar.
 - [ ] Sin commits `wip` en el historial.
 - [ ] `pnpm lint` pasa en verde en la rama.
