@@ -11,16 +11,22 @@ const navLinks = [
 interface SiteHeaderProps {
 	cartItemsCount?: number;
 	onOpenCart?: () => void;
+	themeMode?: 'dark' | 'light';
+	onToggleTheme?: () => void;
 }
 
 export function SiteHeader({
 	cartItemsCount = 0,
 	onOpenCart,
+	themeMode = 'dark',
+	onToggleTheme,
 }: SiteHeaderProps) {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const cartLabel = onOpenCart
 		? 'Abrir carrito'
 		: 'Carrito disponible en el proximo batch';
+	const themeLabel =
+		themeMode === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro';
 
 	function closeMenu() {
 		setIsMenuOpen(false);
@@ -43,6 +49,21 @@ export function SiteHeader({
 				</nav>
 
 				<div className="site-header__actions">
+					<button
+						className="site-header__theme-toggle"
+						type="button"
+						aria-label={themeLabel}
+						title={themeLabel}
+						onClick={onToggleTheme}
+					>
+						<span className="site-header__theme-icon" aria-hidden="true">
+							{themeMode === 'dark' ? '☀' : '☾'}
+						</span>
+						<span className="site-header__theme-label" aria-hidden="true">
+							{themeMode === 'dark' ? 'Claro' : 'Oscuro'}
+						</span>
+					</button>
+
 					<button
 						className="site-header__cart"
 						type="button"

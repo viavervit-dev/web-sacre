@@ -44,4 +44,16 @@ describe('SiteHeader', () => {
 		expect(screen.getByText('3')).toBeInTheDocument();
 		expect(onOpenCart).toHaveBeenCalledTimes(1);
 	});
+
+	it('expone un boton para alternar el modo visual', async () => {
+		const user = userEvent.setup();
+		const onToggleTheme = vi.fn();
+		render(<SiteHeader themeMode="dark" onToggleTheme={onToggleTheme} />);
+
+		await user.click(
+			screen.getByRole('button', { name: 'Cambiar a modo claro' })
+		);
+
+		expect(onToggleTheme).toHaveBeenCalledTimes(1);
+	});
 });

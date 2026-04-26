@@ -5,6 +5,7 @@ import { HeroSection } from '@/components/HeroSection/HeroSection';
 import { SiteFooter } from '@/components/SiteFooter/SiteFooter';
 import { SiteHeader } from '@/components/SiteHeader/SiteHeader';
 import { getCartTotals, useCartStore } from '@/stores/useCartStore';
+import { useThemeStore } from '@/stores/useThemeStore';
 import './style.css';
 
 export function HomePage() {
@@ -14,6 +15,8 @@ export function HomePage() {
 	const addCartItem = useCartStore(state => state.addItem);
 	const removeCartItem = useCartStore(state => state.removeItem);
 	const updateCartQuantity = useCartStore(state => state.updateQuantity);
+	const themeMode = useThemeStore(state => state.mode);
+	const toggleThemeMode = useThemeStore(state => state.toggleMode);
 	const { totalItems, totalPrice } = getCartTotals(items);
 
 	return (
@@ -21,6 +24,8 @@ export function HomePage() {
 			<SiteHeader
 				cartItemsCount={totalItems}
 				onOpenCart={() => setIsCartOpen(true)}
+				themeMode={themeMode}
+				onToggleTheme={toggleThemeMode}
 			/>
 			<main className="home-page__main">
 				<HeroSection />
