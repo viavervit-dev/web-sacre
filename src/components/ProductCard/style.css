@@ -99,7 +99,7 @@
 	font-weight: 700;
 	letter-spacing: 0.26em;
 	text-transform: uppercase;
-	color: var(--color-accent-scarlet-soft);
+	color: var(--color-accent-navy-soft);
 	overflow-wrap: anywhere;
 }
 
@@ -191,7 +191,7 @@
 :root[data-theme='light'] .product-card__badge {
 	border-color: rgba(132, 94, 41, 0.42);
 	background: rgba(248, 240, 226, 0.84);
-	color: var(--color-accent-scarlet);
+	color: var(--color-accent-navy);
 }
 
 :root[data-theme='light'] .product-card__description {

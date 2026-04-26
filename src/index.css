@@ -113,7 +113,7 @@ body::before {
 	background-position: center top;
 	background-repeat: repeat;
 	background-size: 180px 180px;
-	opacity: 0.18;
+	opacity: 0.26;
 	mix-blend-mode: soft-light;
 	pointer-events: none;
 	content: '';
@@ -121,7 +121,7 @@ body::before {
 
 :root[data-theme='light'] body::before {
 	background-image: url('/patterns/tapiz-damask-light.svg');
-	opacity: 0.16;
+	opacity: 0.22;
 	mix-blend-mode: multiply;
 }
 
