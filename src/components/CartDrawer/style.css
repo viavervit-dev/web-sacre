@@ -9,7 +9,7 @@
 	position: absolute;
 	inset: 0;
 	border: 0;
-	background: rgba(7, 5, 3, 0.72);
+	background: rgba(var(--color-black-rgb), 0.7);
 	cursor: pointer;
 }
 
@@ -88,8 +88,8 @@
 
 .cart-drawer__close:hover,
 .cart-drawer__quantity-button:hover {
-	border-color: rgba(241, 212, 138, 0.66);
-	color: var(--color-gold-light);
+	border-color: rgba(43, 70, 107, 0.72);
+	color: var(--color-text);
 	transform: translateY(-1px);
 }
 
@@ -149,7 +149,7 @@
 	grid-template-columns: 88px minmax(0, 1fr);
 	gap: 14px;
 	border: 1px solid rgba(215, 169, 67, 0.14);
-	background: rgba(18, 15, 11, 0.42);
+	background: rgba(var(--color-black-rgb), 0.42);
 	padding: 12px;
 }
 
@@ -260,7 +260,7 @@
 	font-weight: 800;
 	letter-spacing: 0.24em;
 	text-transform: uppercase;
-	color: #120f0b;
+	color: var(--color-ink);
 	transition:
 		filter var(--duration-normal) var(--ease-out),
 		transform var(--duration-normal) var(--ease-out);

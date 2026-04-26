@@ -1,17 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@500;600;700;800&display=swap');
 
 :root {
-	--color-bg: #120f0b;
-	--color-bg-soft: #1c1712;
-	--color-surface: #211a13;
-	--color-surface-elevated: #2a2118;
-	--color-text: #f3ead7;
-	--color-text-muted: #b8a98f;
-	--color-border: rgba(208, 162, 74, 0.2);
+	--color-bg: #241d17;
+	--color-bg-soft: #2f2620;
+	--color-surface: #3a2f27;
+	--color-surface-elevated: #473a30;
+	--color-black: #241d17;
+	--color-black-rgb: 36, 29, 23;
+	--color-white: #ffffff;
+	--color-white-soft: #f5efe3;
+	--color-ink: #17120f;
+	--color-text: #fbf8f3;
+	--color-text-muted: #dfd5c4;
+	--color-border: rgba(208, 162, 74, 0.3);
 	--color-gold: #d7a943;
 	--color-gold-light: #f1d48a;
 	--color-gold-dark: #9d6f1f;
-	--color-burgundy: #67283a;
+	--color-accent-navy: #1f3555;
+	--color-accent-navy-soft: #2b466b;
+	--color-accent-scarlet: #8f2333;
+	--color-accent-scarlet-soft: #a63848;
 	--color-focus: #f1d48a;
 	--gold-gradient: linear-gradient(
 		135deg,
@@ -19,8 +27,8 @@
 		var(--color-gold) 45%,
 		var(--color-gold-dark) 100%
 	);
-	--surface-gradient: linear-gradient(145deg, #211a13 0%, #15110d 100%);
-	--shadow-sacred: 0 24px 80px rgba(0, 0, 0, 0.38);
+	--surface-gradient: linear-gradient(145deg, #3a2f27 0%, #29211b 100%);
+	--shadow-sacred: 0 24px 80px rgba(0, 0, 0, 0.32);
 	--container-max: 1180px;
 	--header-height: 82px;
 	--z-header: 50;
@@ -32,7 +40,7 @@
 	--ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 	--font-display: 'Cinzel', Georgia, serif;
 	--font-body: 'Cormorant Garamond', Georgia, serif;
-	--font-sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+	--font-sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
 	--font-mono: ui-monospace, Consolas, monospace;
 
 	font: 18px/1.6 var(--font-body);
@@ -44,6 +52,25 @@
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+:root[data-theme='light'] {
+	--color-bg: #ddc9a8;
+	--color-bg-soft: #cfb58e;
+	--color-surface: #ebd9bb;
+	--color-surface-elevated: #dfc9a7;
+	--color-black: #241d17;
+	--color-black-rgb: 82, 67, 53;
+	--color-white: #f6e9d4;
+	--color-white-soft: #f0e0c7;
+	--color-ink: #1c1611;
+	--color-text: #1c1611;
+	--color-text-muted: #372a1d;
+	--color-border: rgba(112, 79, 33, 0.45);
+	--surface-gradient: linear-gradient(145deg, #efdebf 0%, #d9c09b 100%);
+	--shadow-sacred: 0 24px 66px rgba(58, 41, 24, 0.16);
+	--color-focus: var(--color-accent-navy-soft);
+	color-scheme: light;
 }
 
 * {
@@ -62,14 +89,44 @@ body {
 	width: 100%;
 	max-width: 100%;
 	overflow-x: clip;
+	position: relative;
 	margin: 0;
 	background:
-		radial-gradient(circle at top left, rgba(215, 169, 67, 0.1), transparent 30rem),
-		linear-gradient(180deg, #120f0b 0%, #0c0907 100%);
+		radial-gradient(circle at top left, rgba(215, 169, 67, 0.12), transparent 30rem),
+		radial-gradient(circle at 85% 8%, rgba(31, 53, 85, 0.2), transparent 26rem),
+		radial-gradient(circle at 22% 82%, rgba(143, 35, 51, 0.14), transparent 30rem),
+		linear-gradient(180deg, #2a221c 0%, #201a15 100%);
+}
+
+:root[data-theme='light'] body {
+	background:
+		radial-gradient(circle at top left, rgba(215, 169, 67, 0.22), transparent 26rem),
+		radial-gradient(circle at 85% 8%, rgba(31, 53, 85, 0.16), transparent 24rem),
+		radial-gradient(circle at 20% 86%, rgba(143, 35, 51, 0.14), transparent 28rem),
+		linear-gradient(180deg, #d9c29c 0%, #c6ab81 100%);
+}
+
+body::before {
+	position: fixed;
+	inset: 0;
+	background-image: url('/patterns/tapiz-damask-dark.svg');
+	background-position: center top;
+	background-repeat: repeat;
+	background-size: 180px 180px;
+	opacity: 0.18;
+	mix-blend-mode: soft-light;
+	pointer-events: none;
+	content: '';
+}
+
+:root[data-theme='light'] body::before {
+	background-image: url('/patterns/tapiz-damask-light.svg');
+	opacity: 0.16;
+	mix-blend-mode: multiply;
 }
 
 body::selection {
-	color: #120f0b;
+	color: var(--color-ink);
 	background: var(--color-gold-light);
 }
 
@@ -77,6 +134,8 @@ body::selection {
 	width: 100%;
 	max-width: 100%;
 	min-height: 100svh;
+	position: relative;
+	z-index: 1;
 }
 
 a {

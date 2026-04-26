@@ -20,15 +20,17 @@
 	background:
 		linear-gradient(
 			180deg,
-			rgba(18, 15, 11, 0.76),
-			rgba(18, 15, 11, 0.5) 45%,
+			rgba(var(--color-black-rgb), 0.74),
+			rgba(var(--color-black-rgb), 0.48) 45%,
 			var(--color-bg) 100%
 		),
 		linear-gradient(
 			90deg,
-			rgba(18, 15, 11, 0.72),
-			transparent 45%,
-			rgba(18, 15, 11, 0.7)
+			rgba(var(--color-black-rgb), 0.7),
+			rgba(31, 53, 85, 0.18) 35%,
+			transparent 50%,
+			rgba(143, 35, 51, 0.16) 65%,
+			rgba(var(--color-black-rgb), 0.7)
 		);
 }
 
@@ -38,7 +40,9 @@
 	background: linear-gradient(
 		90deg,
 		transparent,
-		rgba(215, 169, 67, 0.4),
+		rgba(31, 53, 85, 0.34) 28%,
+		rgba(215, 169, 67, 0.58) 50%,
+		rgba(143, 35, 51, 0.34) 72%,
 		transparent
 	);
 }
@@ -119,7 +123,7 @@
 	font-size: clamp(1.35rem, 2.5vw, 1.75rem);
 	font-style: italic;
 	line-height: 1.45;
-	color: rgba(243, 234, 215, 0.86);
+	color: rgba(248, 246, 242, 0.88);
 }
 
 .hero-section__actions {
@@ -159,7 +163,7 @@
 .hero-section__cta--primary {
 	border-color: transparent;
 	background: var(--gold-gradient);
-	color: #120f0b;
+	color: var(--color-ink);
 	box-shadow: 0 14px 42px rgba(215, 169, 67, 0.22);
 }
 
@@ -168,12 +172,56 @@
 }
 
 .hero-section__cta--secondary {
-	background: rgba(18, 15, 11, 0.36);
+	background: linear-gradient(
+		120deg,
+		rgba(var(--color-black-rgb), 0.52),
+		rgba(31, 53, 85, 0.24)
+	);
 	color: var(--color-gold-light);
 }
 
 .hero-section__cta--secondary:hover {
 	border-color: rgba(241, 212, 138, 0.72);
+}
+
+:root[data-theme='light'] .hero-section::before {
+	background:
+		linear-gradient(
+			180deg,
+			rgba(28, 22, 17, 0.78),
+			rgba(28, 22, 17, 0.58) 42%,
+			rgba(28, 22, 17, 0.76) 100%
+		),
+		linear-gradient(
+			90deg,
+			rgba(28, 22, 17, 0.68),
+			rgba(31, 53, 85, 0.22) 35%,
+			transparent 50%,
+			rgba(143, 35, 51, 0.2) 65%,
+			rgba(28, 22, 17, 0.68)
+		);
+}
+
+:root[data-theme='light'] .hero-section__content {
+	padding: clamp(24px, 4vw, 36px);
+	border: 1px solid rgba(215, 169, 67, 0.36);
+	background: rgba(28, 22, 17, 0.26);
+	backdrop-filter: blur(4px);
+}
+
+:root[data-theme='light'] .hero-section__eyebrow {
+	color: rgba(248, 240, 226, 0.84);
+}
+
+:root[data-theme='light'] .hero-section__lead {
+	color: rgba(248, 240, 226, 0.95);
+	text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+:root[data-theme='light'] .hero-section__cta--secondary {
+	border-color: rgba(215, 169, 67, 0.54);
+	background: rgba(28, 22, 17, 0.42);
+	color: #f8f0e2;
 }
 
 @media (max-width: 640px) {
