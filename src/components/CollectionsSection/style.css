@@ -2,16 +2,37 @@
 	position: relative;
 	padding: clamp(82px, 10vw, 132px) 0;
 	border-top: 1px solid var(--color-border);
+	overflow: hidden;
+	isolation: isolate;
 	background:
 		radial-gradient(
 			circle at 80% 10%,
-			rgba(103, 40, 58, 0.18),
-			transparent 28rem
+			rgba(31, 53, 85, 0.24),
+			transparent 26rem
 		),
-		linear-gradient(180deg, rgba(18, 15, 11, 0), rgba(28, 23, 18, 0.7));
+		linear-gradient(
+			180deg,
+			rgba(var(--color-black-rgb), 0),
+			rgba(var(--color-black-rgb), 0.52)
+		);
+}
+
+.collections-section::before {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	background-image: url('/patterns/tapiz-damask-dark.svg');
+	background-repeat: repeat;
+	background-size: 180px 180px;
+	opacity: 0.08;
+	mix-blend-mode: soft-light;
+	pointer-events: none;
+	content: '';
 }
 
 .collections-section__inner {
+	position: relative;
+	z-index: 1;
 	display: grid;
 	min-width: 0;
 	gap: clamp(44px, 6vw, 72px);
@@ -33,7 +54,7 @@
 	font-weight: 700;
 	letter-spacing: 0.34em;
 	text-transform: uppercase;
-	color: var(--color-text-muted);
+	color: var(--color-accent-scarlet-soft);
 }
 
 .collections-section__title {
@@ -43,6 +64,7 @@
 	line-height: 1.02;
 	letter-spacing: 0.06em;
 	text-transform: uppercase;
+	color: var(--color-gold-light);
 }
 
 .collections-section__ornament {
@@ -57,12 +79,7 @@
 	position: absolute;
 	top: 50%;
 	height: 1px;
-	background: linear-gradient(
-		90deg,
-		transparent,
-		rgba(215, 169, 67, 0.72),
-		transparent
-	);
+	background: rgba(143, 35, 51, 0.66);
 	content: '';
 }
 
@@ -81,9 +98,11 @@
 	min-width: 0;
 	margin-top: 24px;
 	font-size: clamp(1.16rem, 2vw, 1.38rem);
-	font-style: italic;
+	font-family: var(--font-sans);
+	font-style: normal;
+	font-weight: 500;
 	line-height: 1.55;
-	color: var(--color-text-muted);
+	color: rgba(229, 219, 203, 0.88);
 }
 
 .collections-section__grid {
@@ -106,15 +125,15 @@
 	min-height: 52px;
 	align-items: center;
 	justify-content: center;
-	border: 1px solid rgba(215, 169, 67, 0.42);
-	background: rgba(18, 15, 11, 0.4);
+	border: 1px solid rgba(43, 70, 107, 0.86);
+	background: rgba(31, 53, 85, 0.86);
 	padding: 0 44px;
 	font-family: var(--font-display);
 	font-size: 0.72rem;
 	font-weight: 700;
 	letter-spacing: 0.22em;
 	text-transform: uppercase;
-	color: var(--color-gold-light);
+	color: var(--color-white-soft);
 	cursor: pointer;
 	transition:
 		background-color var(--duration-normal) var(--ease-out),
@@ -124,9 +143,9 @@
 }
 
 .collections-section__toggle:hover {
-	border-color: rgba(241, 212, 138, 0.74);
-	background: rgba(215, 169, 67, 0.12);
-	color: var(--color-text);
+	border-color: rgba(43, 70, 107, 0.96);
+	background: rgba(22, 40, 63, 0.96);
+	color: var(--color-white-soft);
 	transform: translateY(-2px);
 }
 
@@ -134,7 +153,7 @@
 	position: absolute;
 	width: 12px;
 	height: 12px;
-	border-color: rgba(241, 212, 138, 0.58);
+	border-color: rgba(43, 70, 107, 0.74);
 	pointer-events: none;
 }
 
@@ -150,6 +169,49 @@
 	bottom: -4px;
 	border-right: 1px solid;
 	border-bottom: 1px solid;
+}
+
+:root[data-theme='light'] .collections-section {
+	background:
+		radial-gradient(circle at 80% 10%, rgba(31, 53, 85, 0.2), transparent 24rem),
+		linear-gradient(180deg, #d8c29e 0%, #c6a97f 100%);
+}
+
+:root[data-theme='light'] .collections-section::before {
+	background-image: url('/patterns/tapiz-damask-light.svg');
+	opacity: 0.12;
+	mix-blend-mode: multiply;
+}
+
+:root[data-theme='light'] .collections-section__eyebrow {
+	color: #8f2333;
+}
+
+:root[data-theme='light'] .collections-section__title {
+	color: #2f2418;
+}
+
+:root[data-theme='light'] .collections-section__lead {
+	color: #3a2c1f;
+	font-family: var(--font-sans);
+	font-style: normal;
+	font-weight: 500;
+}
+
+:root[data-theme='light'] .collections-section__toggle {
+	border-color: rgba(31, 53, 85, 0.94);
+	background: rgba(31, 53, 85, 0.94);
+	color: #f8f0e2;
+}
+
+:root[data-theme='light'] .collections-section__toggle:hover {
+	border-color: rgba(22, 40, 63, 0.98);
+	background: rgba(22, 40, 63, 0.98);
+	color: #fff8ec;
+}
+
+:root[data-theme='light'] .collections-section__toggle-corner {
+	border-color: rgba(31, 53, 85, 0.74);
 }
 
 @media (min-width: 680px) {

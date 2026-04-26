@@ -1,16 +1,35 @@
 .site-footer {
+	position: relative;
 	border-top: 1px solid rgba(215, 169, 67, 0.16);
+	overflow: hidden;
+	isolation: isolate;
 	background:
 		radial-gradient(
 			circle at 50% 0%,
 			rgba(215, 169, 67, 0.12),
 			transparent 22rem
 		),
-		#0c0907;
-	padding: clamp(56px, 8vw, 88px) 0;
+		radial-gradient(circle at 88% 12%, rgba(31, 53, 85, 0.14), transparent 24rem),
+		var(--color-bg-soft);
+	padding: clamp(36px, 5vw, 60px) 0;
+}
+
+.site-footer::before {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	background-image: url('/patterns/tapiz-damask-dark.svg');
+	background-repeat: repeat;
+	background-size: 180px 180px;
+	opacity: 0.09;
+	mix-blend-mode: soft-light;
+	pointer-events: none;
+	content: '';
 }
 
 .site-footer__inner {
+	position: relative;
+	z-index: 1;
 	display: grid;
 	min-width: 0;
 	justify-items: center;
@@ -34,18 +53,20 @@
 	font-weight: 700;
 	letter-spacing: 0.42em;
 	text-transform: uppercase;
-	color: var(--color-text-muted);
+	color: var(--color-accent-scarlet-soft);
 }
 
 .site-footer__quote {
 	max-width: 100%;
-	margin: 32px 0 0;
-	color: var(--color-text-muted);
+	margin: 22px 0 0;
+	color: rgba(229, 219, 203, 0.88);
 }
 
 .site-footer__quote p {
 	font-size: 1.18rem;
-	font-style: italic;
+	font-family: var(--font-sans);
+	font-style: normal;
+	font-weight: 500;
 }
 
 .site-footer__quote cite {
@@ -61,13 +82,8 @@
 .site-footer__ornament {
 	width: min(100%, 280px);
 	height: 1px;
-	margin-top: 34px;
-	background: linear-gradient(
-		90deg,
-		transparent,
-		rgba(215, 169, 67, 0.64),
-		transparent
-	);
+	margin-top: 22px;
+	background: rgba(143, 35, 51, 0.7);
 }
 
 .site-footer__links {
@@ -77,7 +93,7 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 16px clamp(24px, 5vw, 44px);
-	margin-top: 32px;
+	margin-top: 22px;
 }
 
 @media (max-width: 360px) {
@@ -105,20 +121,45 @@
 	font-weight: 700;
 	letter-spacing: 0.18em;
 	text-transform: uppercase;
-	color: var(--color-text-muted);
+	color: rgba(230, 219, 201, 0.84);
 	transition:
 		color var(--duration-normal) var(--ease-out),
 		transform var(--duration-normal) var(--ease-out);
 }
 
 .site-footer__link:hover {
-	color: var(--color-gold-light);
+	color: var(--color-accent-scarlet-soft);
 	transform: translateY(-2px);
 }
 
 .site-footer__legal {
-	margin-top: 36px;
+	margin-top: 22px;
 	font-family: var(--font-sans);
 	font-size: 0.72rem;
-	color: rgba(184, 169, 143, 0.62);
+	color: rgba(224, 209, 186, 0.72);
+}
+
+:root[data-theme='light'] .site-footer {
+	border-top-color: rgba(112, 79, 33, 0.38);
+	background:
+		radial-gradient(circle at 50% 0%, rgba(215, 169, 67, 0.2), transparent 21rem),
+		radial-gradient(circle at 88% 12%, rgba(31, 53, 85, 0.16), transparent 24rem),
+		linear-gradient(180deg, #ccb186 0%, #b99668 100%);
+}
+
+:root[data-theme='light'] .site-footer::before {
+	background-image: url('/patterns/tapiz-damask-light.svg');
+	opacity: 0.12;
+	mix-blend-mode: multiply;
+}
+
+:root[data-theme='light'] .site-footer__tagline,
+:root[data-theme='light'] .site-footer__quote,
+:root[data-theme='light'] .site-footer__link,
+:root[data-theme='light'] .site-footer__legal {
+	color: #342719;
+}
+
+:root[data-theme='light'] .site-footer__link:hover {
+	color: var(--color-accent-navy);
 }
