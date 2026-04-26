@@ -189,7 +189,7 @@
 }
 
 :root[data-theme='light'] .about-section__value-title {
-	color: #1f3555;
+	color: var(--color-accent-scarlet);
 }
 
 :root[data-theme='light'] .about-section__value-description {
@@ -234,7 +234,7 @@
 	font-size: 1.25rem;
 	letter-spacing: 0.12em;
 	text-transform: uppercase;
-	color: var(--color-white-soft);
+	color: var(--color-accent-scarlet-soft);
 }
 
 .about-section__value-description {
