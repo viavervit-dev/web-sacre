@@ -14,7 +14,6 @@ export interface ProductCardProduct {
 interface ProductCardProps {
 	product: ProductCardProduct;
 	index?: number;
-	onAdd?: (product: ProductCardProduct) => void;
 }
 
 const cardEase = [0.16, 1, 0.3, 1] as const;
@@ -25,9 +24,8 @@ const currencyFormatter = new Intl.NumberFormat('es-AR', {
 	maximumFractionDigits: 0,
 });
 
-export function ProductCard({ product, index = 0, onAdd }: ProductCardProps) {
+export function ProductCard({ product, index = 0 }: ProductCardProps) {
 	const formattedPrice = currencyFormatter.format(product.price);
-	const actionLabel = `Agregar ${product.title} al carrito`;
 
 	return (
 		<motion.article
@@ -74,14 +72,6 @@ export function ProductCard({ product, index = 0, onAdd }: ProductCardProps) {
 							{formattedPrice}
 						</span>
 					</div>
-					<button
-						className="product-card__action"
-						type="button"
-						aria-label={actionLabel}
-						onClick={() => onAdd?.(product)}
-					>
-						Agregar
-					</button>
 				</div>
 			</div>
 		</motion.article>

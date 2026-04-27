@@ -1,10 +1,5 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import medalAngel from '@/assets/medal-angel.jpg';
-import medalCrucifix from '@/assets/medal-crucifix.jpg';
-import medalSacredHeart from '@/assets/medal-sacred-heart.jpg';
-import medalVirgin from '@/assets/medal-virgin.jpg';
-import rosary from '@/assets/rosary.jpg';
 import {
 	ProductCard,
 	type ProductCardProduct,
@@ -13,6 +8,16 @@ import './style.css';
 
 const initialVisibleProducts = 6;
 const sectionEase = [0.16, 1, 0.3, 1] as const;
+const medalAngelUrl =
+	'https://res.cloudinary.com/dcpf2yyhe/image/upload/v1777251044/medal-angel_zaoqc4.jpg';
+const medalCrucifixUrl =
+	'https://res.cloudinary.com/dcpf2yyhe/image/upload/v1777251060/medal-crucifix_kfcqzk.jpg';
+const medalSacredHeartUrl =
+	'https://res.cloudinary.com/dcpf2yyhe/image/upload/v1777251085/medal-sacred-heart_fszfrw.jpg';
+const medalVirginUrl =
+	'https://res.cloudinary.com/dcpf2yyhe/image/upload/v1777251128/medal-virgin_ieaw4q.jpg';
+const rosaryUrl =
+	'https://res.cloudinary.com/dcpf2yyhe/image/upload/v1777251142/rosary_bdnlrt.jpg';
 
 const products: ProductCardProduct[] = [
 	{
@@ -22,7 +27,7 @@ const products: ProductCardProduct[] = [
 		description:
 			'Medalla labrada con la imagen de la Patrona de America, pensada para llevar cerca del corazon.',
 		price: 89000,
-		image: medalVirgin,
+		image: medalVirginUrl,
 		badge: 'Mas elegida',
 	},
 	{
@@ -32,7 +37,7 @@ const products: ProductCardProduct[] = [
 		description:
 			'El amor divino en una pieza de lineas clasicas, llamas, espinas y brillo ceremonial.',
 		price: 75000,
-		image: medalSacredHeart,
+		image: medalSacredHeartUrl,
 	},
 	{
 		id: 'crucifijo-barroco',
@@ -41,7 +46,7 @@ const products: ProductCardProduct[] = [
 		description:
 			'Cruz ornamental inspirada en retablos antiguos y joyeria devocional europea.',
 		price: 120000,
-		image: medalCrucifix,
+		image: medalCrucifixUrl,
 	},
 	{
 		id: 'san-miguel',
@@ -50,7 +55,7 @@ const products: ProductCardProduct[] = [
 		description:
 			'Medallon protector con presencia de coleccion, creado para acompanar camino y oracion.',
 		price: 95000,
-		image: medalAngel,
+		image: medalAngelUrl,
 	},
 	{
 		id: 'rosario-nacar',
@@ -59,7 +64,7 @@ const products: ProductCardProduct[] = [
 		description:
 			'Rosario artesanal con cuentas luminosas y terminacion dorada para rituales cotidianos.',
 		price: 145000,
-		image: rosary,
+		image: rosaryUrl,
 		badge: 'Edicion limitada',
 	},
 	{
@@ -69,7 +74,7 @@ const products: ProductCardProduct[] = [
 		description:
 			'Iconografia tradicional de Santa Catalina Laboure reinterpretada con delicadeza dorada.',
 		price: 65000,
-		image: medalVirgin,
+		image: medalVirginUrl,
 	},
 	{
 		id: 'cruz-jerusalen',
@@ -78,7 +83,7 @@ const products: ProductCardProduct[] = [
 		description:
 			'Simbolo de peregrinacion y memoria sagrada, con geometria fuerte y acabado antiguo.',
 		price: 110000,
-		image: medalCrucifix,
+		image: medalCrucifixUrl,
 	},
 	{
 		id: 'angel-guardian',
@@ -87,15 +92,11 @@ const products: ProductCardProduct[] = [
 		description:
 			'Una medalla serena para bendecir hogares, viajes y vinculos queridos.',
 		price: 70000,
-		image: medalAngel,
+		image: medalAngelUrl,
 	},
 ];
 
-interface CollectionsSectionProps {
-	onAddProduct?: (product: ProductCardProduct) => void;
-}
-
-export function CollectionsSection({ onAddProduct }: CollectionsSectionProps) {
+export function CollectionsSection() {
 	const [showAll, setShowAll] = useState(false);
 	const hasMoreProducts = products.length > initialVisibleProducts;
 	const visibleProducts = showAll
@@ -136,17 +137,12 @@ export function CollectionsSection({ onAddProduct }: CollectionsSectionProps) {
 
 				<div id="collections-products" className="collections-section__grid">
 					{visibleProducts.map((product, index) => (
-						<ProductCard
-							key={product.id}
-							product={product}
-							index={index}
-							onAdd={onAddProduct}
-						/>
+						<ProductCard key={product.id} product={product} index={index} />
 					))}
 				</div>
 
-				{hasMoreProducts ? (
-					<div className="collections-section__actions">
+				<div className="collections-section__actions">
+					{hasMoreProducts ? (
 						<button
 							className="collections-section__toggle"
 							type="button"
@@ -164,8 +160,11 @@ export function CollectionsSection({ onAddProduct }: CollectionsSectionProps) {
 								aria-hidden="true"
 							/>
 						</button>
-					</div>
-				) : null}
+					) : null}
+					<a className="collections-section__catalog-link" href="/catalogo">
+						Ir al catalogo completo
+					</a>
+				</div>
 			</div>
 		</section>
 	);

@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import medalVirgin from '@/assets/medal-virgin.jpg';
 import { ProductCard } from '../ProductCard';
+
+const medalVirginUrl =
+	'https://res.cloudinary.com/dcpf2yyhe/image/upload/v1777251128/medal-virgin_ieaw4q.jpg';
 
 const product = {
 	id: 'virgen-guadalupe',
@@ -9,7 +10,7 @@ const product = {
 	subtitle: 'Medallas Marianas',
 	description: 'Medalla labrada en oro con iconografia mariana.',
 	price: 89000,
-	image: medalVirgin,
+	image: medalVirginUrl,
 	badge: 'Mas elegida',
 };
 
@@ -27,19 +28,10 @@ describe('ProductCard', () => {
 		).toHaveAttribute('loading', 'lazy');
 		expect(screen.getByText('Mas elegida')).toBeInTheDocument();
 		expect(screen.queryByText('Donativo')).not.toBeInTheDocument();
-	});
-
-	it('llama a onAdd al agregar el producto al carrito', async () => {
-		const user = userEvent.setup();
-		const onAdd = vi.fn();
-		render(<ProductCard product={product} onAdd={onAdd} />);
-
-		await user.click(
-			screen.getByRole('button', {
-				name: 'Agregar Virgen de Guadalupe al carrito',
+		expect(
+			screen.queryByRole('button', {
+				name: /agregar/i,
 			})
-		);
-
-		expect(onAdd).toHaveBeenCalledWith(product);
+		).not.toBeInTheDocument();
 	});
 });

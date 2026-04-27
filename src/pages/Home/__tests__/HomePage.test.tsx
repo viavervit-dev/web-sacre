@@ -1,18 +1,12 @@
-import { render, screen, waitFor, within } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { useCartStore } from '@/stores/useCartStore';
+import { render, screen, within } from '@testing-library/react';
 import { HomePage } from '../HomePage';
 
 describe('HomePage', () => {
-	afterEach(() => {
-		useCartStore.setState({ items: [], isOpen: false });
-	});
-
-	it('muestra el shell inicial de Sacre', () => {
+	it('muestra el shell inicial de Sacré', () => {
 		render(<HomePage />);
 
 		expect(
-			screen.getByRole('heading', { level: 1, name: 'Sacre' })
+			screen.getByRole('heading', { level: 1, name: /sacré/i })
 		).toBeInTheDocument();
 		expect(
 			screen.getByRole('navigation', { name: 'Navegacion principal' })
@@ -31,64 +25,22 @@ describe('HomePage', () => {
 		expect(
 			within(screen.getByRole('contentinfo')).getByRole('heading', {
 				level: 2,
-				name: 'Sacre',
+				name: 'Sacré',
 			})
 		).toBeInTheDocument();
 	});
 
-	it('conecta catalogo, contador y drawer de carrito', async () => {
-		const user = userEvent.setup();
+	it('expone accesos al catalogo sin flujos de carrito', () => {
 		render(<HomePage />);
-		const addVirgin = screen.getByRole('button', {
-			name: 'Agregar Virgen de Guadalupe al carrito',
-		});
-
-		await user.click(addVirgin);
-		await user.click(addVirgin);
 
 		expect(
-			screen.getByRole('button', { name: 'Abrir carrito' })
-		).toHaveTextContent('2');
+			screen.getAllByRole('link', { name: 'Catalogo' }).length
+		).toBeGreaterThan(0);
 		expect(
-			screen.getByRole('dialog', { name: 'Cofre Sagrado' })
-		).toBeInTheDocument();
-		const drawer = within(
-			screen.getByRole('dialog', { name: 'Cofre Sagrado' })
-		);
-		expect(drawer.getAllByText('$ 178.000')).toHaveLength(2);
-
-		await user.click(
-			screen.getByRole('button', {
-				name: 'Disminuir cantidad de Virgen de Guadalupe',
-			})
-		);
-
-		await waitFor(() => {
-			expect(
-				screen.getByRole('button', { name: 'Abrir carrito' })
-			).toHaveTextContent('1');
-		});
-		expect(drawer.getAllByText('$ 89.000')).toHaveLength(2);
-
-		await user.click(
-			screen.getByRole('button', {
-				name: 'Aumentar cantidad de Virgen de Guadalupe',
-			})
-		);
-
-		await waitFor(() => {
-			expect(
-				screen.getByRole('button', { name: 'Abrir carrito' })
-			).toHaveTextContent('2');
-		});
-
-		await user.click(
-			screen.getByRole('button', { name: 'Eliminar Virgen de Guadalupe' })
-		);
-
+			screen.getByRole('link', { name: 'Ir al catalogo' })
+		).toHaveAttribute('href', '/catalogo');
 		expect(
-			screen.getByRole('button', { name: 'Abrir carrito' })
-		).toHaveTextContent('0');
-		expect(screen.getByText('Tu cofre esta vacio')).toBeInTheDocument();
+			screen.getByRole('link', { name: 'Ir al catalogo completo' })
+		).toHaveAttribute('href', '/catalogo');
 	});
 });

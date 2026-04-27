@@ -2,29 +2,23 @@ import { useState } from 'react';
 import './style.css';
 
 const navLinks = [
-	{ label: 'Inicio', href: '#hero' },
-	{ label: 'Colecciones', href: '#collections' },
-	{ label: 'Nosotros', href: '#about' },
-	{ label: 'Contacto', href: '#contact' },
+	{ label: 'Inicio', href: '/#hero' },
+	{ label: 'Colecciones', href: '/#collections' },
+	{ label: 'Catalogo', href: '/catalogo' },
+	{ label: 'Nosotros', href: '/#about' },
+	{ label: 'Contacto', href: '/#contact' },
 ];
 
 interface SiteHeaderProps {
-	cartItemsCount?: number;
-	onOpenCart?: () => void;
 	themeMode?: 'dark' | 'light';
 	onToggleTheme?: () => void;
 }
 
 export function SiteHeader({
-	cartItemsCount = 0,
-	onOpenCart,
 	themeMode = 'dark',
 	onToggleTheme,
 }: SiteHeaderProps) {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const cartLabel = onOpenCart
-		? 'Abrir carrito'
-		: 'Carrito disponible en el proximo batch';
 	const themeLabel =
 		themeMode === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro';
 
@@ -35,9 +29,11 @@ export function SiteHeader({
 	return (
 		<header className="site-header">
 			<div className="site-header__inner sacre-container">
-				<a className="site-header__brand" href="#hero" onClick={closeMenu}>
-					<span className="site-header__brand-name">Sacre</span>
-					<span className="site-header__brand-tagline">Articulos sacros</span>
+				<a className="site-header__brand" href="/#hero" onClick={closeMenu}>
+					<span className="site-header__brand-name">Sacré</span>
+					<span className="site-header__brand-tagline">
+						Articulos sacramentales
+					</span>
 				</a>
 
 				<nav className="site-header__nav" aria-label="Navegacion principal">
@@ -49,6 +45,10 @@ export function SiteHeader({
 				</nav>
 
 				<div className="site-header__actions">
+					<a className="site-header__catalog-button" href="/catalogo">
+						Catalogo
+					</a>
+
 					<button
 						className="site-header__theme-toggle"
 						type="button"
@@ -61,26 +61,6 @@ export function SiteHeader({
 						</span>
 						<span className="site-header__theme-label" aria-hidden="true">
 							{themeMode === 'dark' ? 'Claro' : 'Oscuro'}
-						</span>
-					</button>
-
-					<button
-						className="site-header__cart"
-						type="button"
-						aria-label={cartLabel}
-						disabled={!onOpenCart}
-						onClick={onOpenCart}
-					>
-						<svg
-							aria-hidden="true"
-							className="site-header__cart-icon"
-							viewBox="0 0 24 24"
-						>
-							<path d="M7 8a5 5 0 0 1 10 0" />
-							<path d="M5.5 8h13l-1 12h-11z" />
-						</svg>
-						<span className="site-header__cart-count" aria-hidden="true">
-							{cartItemsCount}
 						</span>
 					</button>
 

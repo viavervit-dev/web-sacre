@@ -1,22 +1,28 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { SiteHeader } from '../SiteHeader';
 
 describe('SiteHeader', () => {
 	it('muestra la marca y los links principales', () => {
 		render(<SiteHeader />);
+		const nav = screen.getByRole('navigation', {
+			name: 'Navegacion principal',
+		});
 
-		expect(screen.getByRole('link', { name: /Sacre/i })).toHaveAttribute(
+		expect(screen.getByRole('link', { name: /Sacré/i })).toHaveAttribute(
 			'href',
-			'#hero'
+			'/#hero'
 		);
-		expect(screen.getByRole('link', { name: 'Colecciones' })).toHaveAttribute(
+		expect(
+			within(nav).getByRole('link', { name: 'Colecciones' })
+		).toHaveAttribute('href', '/#collections');
+		expect(within(nav).getByRole('link', { name: 'Catalogo' })).toHaveAttribute(
 			'href',
-			'#collections'
+			'/catalogo'
 		);
-		expect(screen.getByRole('link', { name: 'Nosotros' })).toHaveAttribute(
+		expect(within(nav).getByRole('link', { name: 'Nosotros' })).toHaveAttribute(
 			'href',
-			'#about'
+			'/#about'
 		);
 	});
 
@@ -34,15 +40,10 @@ describe('SiteHeader', () => {
 		);
 	});
 
-	it('habilita el carrito con contador real cuando recibe handler', async () => {
-		const user = userEvent.setup();
-		const onOpenCart = vi.fn();
-		render(<SiteHeader cartItemsCount={3} onOpenCart={onOpenCart} />);
+	it('muestra un acceso directo al catalogo desde acciones', () => {
+		render(<SiteHeader />);
 
-		await user.click(screen.getByRole('button', { name: 'Abrir carrito' }));
-
-		expect(screen.getByText('3')).toBeInTheDocument();
-		expect(onOpenCart).toHaveBeenCalledTimes(1);
+		expect(screen.getAllByRole('link', { name: 'Catalogo' })).toHaveLength(2);
 	});
 
 	it('expone un boton para alternar el modo visual', async () => {

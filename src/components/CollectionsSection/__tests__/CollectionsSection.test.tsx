@@ -33,19 +33,11 @@ describe('CollectionsSection', () => {
 		).toHaveAttribute('aria-expanded', 'true');
 	});
 
-	it('propaga la accion de agregar producto desde una card', async () => {
-		const user = userEvent.setup();
-		const onAddProduct = vi.fn();
-		render(<CollectionsSection onAddProduct={onAddProduct} />);
+	it('expone un acceso directo al catalogo', () => {
+		render(<CollectionsSection />);
 
-		await user.click(
-			screen.getByRole('button', {
-				name: 'Agregar Virgen de Guadalupe al carrito',
-			})
-		);
-
-		expect(onAddProduct).toHaveBeenCalledWith(
-			expect.objectContaining({ id: 'virgen-guadalupe' })
-		);
+		expect(
+			screen.getByRole('link', { name: 'Ir al catalogo completo' })
+		).toHaveAttribute('href', '/catalogo');
 	});
 });
