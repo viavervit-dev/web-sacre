@@ -14,7 +14,7 @@ export function NotFoundPage() {
 					Umbral no encontrado
 				</h1>
 				<p className="not-found-page__lead">
-					Este umbral no pertenece al santuario de Sacre. Volve al inicio para
+					Este umbral no pertenece al santuario de Sacré. Volve al inicio para
 					reencontrarte con nuestras piezas sagradas.
 				</p>
 				<Link className="not-found-page__link" to="/">

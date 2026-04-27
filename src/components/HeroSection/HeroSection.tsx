@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
-import heroMedals from '@/assets/hero-medals.jpg';
 import './style.css';
 
 const heroEase = [0.16, 1, 0.3, 1] as const;
+const heroMedalsUrl =
+	'https://res.cloudinary.com/dcpf2yyhe/image/upload/v1777250973/hero-medals_kuyjdy.jpg';
 
 export function HeroSection() {
 	return (
@@ -10,7 +11,7 @@ export function HeroSection() {
 			<div className="hero-section__media" aria-hidden="true">
 				<img
 					className="hero-section__image"
-					src={heroMedals}
+					src={heroMedalsUrl}
 					alt=""
 					width="1920"
 					height="1080"
@@ -46,7 +47,7 @@ export function HeroSection() {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.9, delay: 0.62, ease: heroEase }}
 				>
-					Sacre
+					SACRÉ
 				</motion.h1>
 				<motion.p
 					className="hero-section__lead"
@@ -54,8 +55,8 @@ export function HeroSection() {
 					animate={{ opacity: 1 }}
 					transition={{ duration: 0.72, delay: 0.9, ease: heroEase }}
 				>
-					Medallitas y articulos sacros elegidos con devocion, inspirados en
-					siglos de arte, fe y belleza catolica.
+					Medallitas y articulos sacramentales elegidos con devocion, inspirados
+					en siglos de arte, fe y belleza catolica.
 				</motion.p>
 				<motion.div
 					className="hero-section__actions"
@@ -72,9 +73,9 @@ export function HeroSection() {
 					</a>
 					<a
 						className="hero-section__cta hero-section__cta--secondary"
-						href="#about"
+						href="/catalogo"
 					>
-						Nuestra historia
+						Ir al catalogo
 					</a>
 				</motion.div>
 			</motion.div>

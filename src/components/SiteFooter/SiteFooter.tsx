@@ -15,9 +15,9 @@ export function SiteFooter() {
 						id="footer-title"
 						className="site-footer__brand text-gold-gradient"
 					>
-						Sacre
+						Sacré
 					</h2>
-					<p className="site-footer__tagline">Articulos sacros</p>
+					<p className="site-footer__tagline">Articulos sacramentales</p>
 				</div>
 
 				<blockquote className="site-footer__quote">
@@ -36,7 +36,7 @@ export function SiteFooter() {
 				</nav>
 
 				<p className="site-footer__legal">
-					© {new Date().getFullYear()} Sacre. Todos los derechos reservados.
+					© {new Date().getFullYear()} Sacré. Todos los derechos reservados.
 				</p>
 			</div>
 		</footer>

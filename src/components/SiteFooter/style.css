@@ -38,10 +38,12 @@
 
 .site-footer__brand {
 	max-width: 100%;
+	display: inline-block;
+	padding-top: 0.08em;
 	font-size: clamp(2rem, 5vw, 3rem);
 	font-weight: 800;
 	letter-spacing: 0.28em;
-	line-height: 1;
+	line-height: 1.12;
 	text-transform: uppercase;
 }
 

@@ -2,14 +2,14 @@ import { render, screen } from '@testing-library/react';
 import { AboutSection } from '../AboutSection';
 
 describe('AboutSection', () => {
-	it('muestra la narrativa institucional de Sacre', () => {
+	it('muestra la narrativa institucional de Sacré', () => {
 		render(<AboutSection />);
 
 		expect(
 			screen.getByRole('heading', { level: 2, name: 'Fe hecha arte' })
 		).toBeInTheDocument();
 		expect(
-			screen.getByText(/Sacre nace de una idea simple/i)
+			screen.getByText(/Sacré nace de una idea simple/i)
 		).toBeInTheDocument();
 	});
 

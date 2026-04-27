@@ -40,14 +40,14 @@ export function AboutSection() {
 						Fe hecha arte
 					</h2>
 					<p className="about-section__lead">
-						Sacre nace de una idea simple y exigente: un objeto de devocion
+						Sacré nace de una idea simple y exigente: un objeto de devocion
 						merece belleza, peso simbolico y presencia. Cada medallita, cruz y
 						rosario esta elegido para unir fe, oficio y una estetica que no pide
 						permiso.
 					</p>
 				</motion.div>
 
-				<div className="about-section__values" aria-label="Valores de Sacre">
+				<div className="about-section__values" aria-label="Valores de Sacré">
 					{values.map((value, index) => (
 						<motion.article
 							className="about-section__value"

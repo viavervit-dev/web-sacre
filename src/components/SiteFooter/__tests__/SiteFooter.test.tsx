@@ -6,7 +6,7 @@ describe('SiteFooter', () => {
 		render(<SiteFooter />);
 
 		expect(
-			screen.getByRole('heading', { level: 2, name: 'Sacre' })
+			screen.getByRole('heading', { level: 2, name: 'Sacré' })
 		).toBeInTheDocument();
 		expect(screen.getByText('Et lux perpetua luceat eis.')).toBeInTheDocument();
 	});

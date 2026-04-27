@@ -6,10 +6,10 @@ describe('HeroSection', () => {
 		render(<HeroSection />);
 
 		expect(
-			screen.getByRole('heading', { level: 1, name: 'Sacre' })
+			screen.getByRole('heading', { level: 1, name: /sacré/i })
 		).toBeInTheDocument();
 		expect(
-			screen.getByText(/Medallitas y articulos sacros/i)
+			screen.getByText(/Medallitas y articulos sacramentales/i)
 		).toBeInTheDocument();
 	});
 
@@ -20,7 +20,7 @@ describe('HeroSection', () => {
 			screen.getByRole('link', { name: 'Ver colecciones' })
 		).toHaveAttribute('href', '#collections');
 		expect(
-			screen.getByRole('link', { name: 'Nuestra historia' })
-		).toHaveAttribute('href', '#about');
+			screen.getByRole('link', { name: 'Ir al catalogo' })
+		).toHaveAttribute('href', '/catalogo');
 	});
 });
