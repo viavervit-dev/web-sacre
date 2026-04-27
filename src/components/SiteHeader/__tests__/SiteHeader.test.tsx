@@ -40,10 +40,10 @@ describe('SiteHeader', () => {
 		);
 	});
 
-	it('muestra un acceso directo al catalogo desde acciones', () => {
+	it('muestra un unico acceso al catalogo en la navegacion principal', () => {
 		render(<SiteHeader />);
 
-		expect(screen.getAllByRole('link', { name: 'Catalogo' })).toHaveLength(2);
+		expect(screen.getAllByRole('link', { name: 'Catalogo' })).toHaveLength(1);
 	});
 
 	it('expone un boton para alternar el modo visual', async () => {

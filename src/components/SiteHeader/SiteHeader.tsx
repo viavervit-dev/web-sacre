@@ -45,10 +45,6 @@ export function SiteHeader({
 				</nav>
 
 				<div className="site-header__actions">
-					<a className="site-header__catalog-button" href="/catalogo">
-						Catalogo
-					</a>
-
 					<button
 						className="site-header__theme-toggle"
 						type="button"
