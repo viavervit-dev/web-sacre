@@ -53,7 +53,6 @@ La configuracion vive en `commitlint.config.cjs` en la raiz del proyecto.
 | `ci`       | Cambios en GitHub Actions o cualquier workflow de automatizacion     |
 | `docs`     | README, AGENTS.md, Skills/, comentarios en codigo                   |
 | `refactor` | Reorganizar o reescribir sin cambiar el comportamiento externo       |
-| `style`    | Solo CSS, formato, espaciado — cero logica                           |
 | `test`     | Agregar o corregir tests, sin tocar codigo de produccion             |
 | `chore`    | Actualizacion de dependencias, configuracion, archivos de tooling    |
 | `build`    | Cambios en vite.config.ts, tsconfig, scripts de build               |
@@ -78,6 +77,8 @@ La configuracion vive en `commitlint.config.cjs` en la raiz del proyecto.
 
 5. **`wip` nunca llega a `main`** — es un tipo de escape para guardar progreso en ramas de trabajo. Antes de abrir un MR, todos los `wip` deben ser reemplazados o squasheados.
 
+6. **Prohibido `style` como tipo de commit** — en Conventional Commits significa cambios de estilo/formato del codigo que no afectan comportamiento, no cambios de CSS o diseño visual. Para ajustes visuales usar `refactor` si modifica una pieza existente o `add` si introduce una pieza nueva.
+
 ## Camino simple, no facil
 
 Es mas facil hacer un commit gigante con todo junto. El camino simple es escribir el minimo cambio cohesivo que tenga sentido por si solo — asi el `git log` es documentacion, no ruido.
@@ -97,4 +98,5 @@ pnpm test --run  # tiene que pasar en verde
 - [ ] Maximo 100 caracteres en la primera linea.
 - [ ] Un solo cambio logico por commit.
 - [ ] Si es `wip`, no va a `main`.
+- [ ] No usa `style` como tipo de commit.
 - [ ] `pnpm lint` y `pnpm test --run` en verde.
