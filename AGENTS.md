@@ -33,6 +33,7 @@ Si dos fuentes se contradicen, gana la de mayor precedencia.
 3. **Un componente por archivo** — si necesita helpers internos, van en el mismo archivo o en `utils/`.
 4. **Tests en `__tests__/`** dentro de la carpeta del modulo que testean.
 5. **Commits sin scope**, todo en minusculas, tipo valido segun `commitlint.config.cjs`.
+6. **Prohibido `style` como tipo de commit** — en Conventional Commits refiere al estilo/formato del codigo, no al CSS. Para cambios visuales usar `refactor` si ajusta implementacion existente o `add` si incorpora una pieza nueva.
 
 ## Reglas de agentes
 
