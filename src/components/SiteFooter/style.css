@@ -155,6 +155,13 @@
 	mix-blend-mode: multiply;
 }
 
+:root[data-theme='light'] .site-footer__brand {
+	background: linear-gradient(135deg, #5f3b0e 0%, #8f5f17 45%, #3d2509 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+
 :root[data-theme='light'] .site-footer__tagline,
 :root[data-theme='light'] .site-footer__quote,
 :root[data-theme='light'] .site-footer__link,
