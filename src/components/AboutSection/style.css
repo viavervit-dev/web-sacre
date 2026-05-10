@@ -1,46 +1,27 @@
 .about-section {
 	position: relative;
 	padding: clamp(82px, 10vw, 132px) 0;
-	border-top: 1px solid var(--color-border);
 	overflow: hidden;
 	isolation: isolate;
 	background:
 		radial-gradient(
-			circle at 15% 20%,
-			rgba(215, 169, 67, 0.08),
-			transparent 28rem
+			circle at 18% 22%,
+			rgba(143, 35, 51, 0.42),
+			transparent 30rem
 		),
-		radial-gradient(circle at 86% 18%, rgba(31, 53, 85, 0.14), transparent 24rem),
+		radial-gradient(
+			circle at 84% 12%,
+			rgba(215, 169, 67, 0.18),
+			transparent 26rem
+		),
 		linear-gradient(
 			180deg,
-			rgba(var(--color-black-rgb), 0.18),
-			rgba(var(--color-black-rgb), 0.9)
+			#3a1a1c 0%,
+			#2a1316 55%,
+			#1f0f12 100%
 		);
 }
 
-.about-section::before {
-	position: absolute;
-	top: 0;
-	right: 0;
-	left: 0;
-	z-index: 0;
-	height: 1px;
-	background: rgba(143, 35, 51, 0.55);
-	content: '';
-}
-
-.about-section::after {
-	position: absolute;
-	inset: 0;
-	z-index: 0;
-	background-image: url('/patterns/tapiz-damask-dark.svg');
-	background-repeat: repeat;
-	background-size: 180px 180px;
-	opacity: 0.09;
-	mix-blend-mode: soft-light;
-	pointer-events: none;
-	content: '';
-}
 
 .about-section__inner {
 	position: relative;
@@ -106,8 +87,9 @@
 	min-height: 260px;
 	align-content: center;
 	overflow: hidden;
-	border: 1px solid rgba(215, 169, 67, 0.22);
-	background: rgba(143, 35, 51, 0.16);
+	border: 1px solid rgba(241, 212, 138, 0.32);
+	background: rgba(20, 10, 12, 0.55);
+	backdrop-filter: blur(2px);
 	padding: clamp(28px, 5vw, 44px);
 	text-align: center;
 	transition:
@@ -146,22 +128,16 @@
 }
 
 .about-section__value:hover {
-	border-color: rgba(166, 56, 72, 0.66);
-	background: rgba(143, 35, 51, 0.26);
+	border-color: rgba(241, 212, 138, 0.6);
+	background: rgba(20, 10, 12, 0.68);
 	transform: translateY(-4px);
 }
 
 :root[data-theme='light'] .about-section {
 	background:
-		radial-gradient(circle at 15% 20%, rgba(215, 169, 67, 0.24), transparent 26rem),
-		radial-gradient(circle at 86% 18%, rgba(31, 53, 85, 0.18), transparent 24rem),
-		linear-gradient(180deg, #dcc8a8 0%, #cdb18a 100%);
-}
-
-:root[data-theme='light'] .about-section::after {
-	background-image: url('/patterns/tapiz-damask-light.svg');
-	opacity: 0.12;
-	mix-blend-mode: multiply;
+		radial-gradient(circle at 18% 22%, rgba(143, 35, 51, 0.26), transparent 28rem),
+		radial-gradient(circle at 84% 12%, rgba(215, 169, 67, 0.28), transparent 24rem),
+		linear-gradient(180deg, #e6c2a4 0%, #d49e84 55%, #b87f6a 100%);
 }
 
 :root[data-theme='light'] .about-section__eyebrow {

@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180">
 	<defs>
-		<g id="motif" fill="none" stroke="#ffffff" stroke-opacity="0.18" stroke-width="1.35">
+		<g id="motif" fill="none" stroke="#f1d48a" stroke-opacity="0.38" stroke-width="1.55">
 			<path d="M0 -34c-7 7-12 16-12 25 0 10 6 18 12 24 6-6 12-14 12-24 0-9-5-18-12-25z"/>
 			<path d="M0 -18c-12 0-21 7-21 18 0 10 7 18 16 22"/>
 			<path d="M0 -18c12 0 21 7 21 18 0 10-7 18-16 22"/>
 			<path d="M0 14v26"/>
 			<path d="M-7 28h14"/>
-			<circle cx="0" cy="-39" r="2.4" fill="#ffffff" fill-opacity="0.18" stroke="none"/>
+			<circle cx="0" cy="-39" r="2.6" fill="#f1d48a" fill-opacity="0.55" stroke="none"/>
 		</g>
 	</defs>
 
