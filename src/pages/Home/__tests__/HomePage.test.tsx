@@ -1,20 +1,26 @@
-import { render, screen, within } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { HomePage } from '../HomePage';
+
+function renderHomePage() {
+	render(
+		<MemoryRouter>
+			<HomePage />
+		</MemoryRouter>
+	);
+}
 
 describe('HomePage', () => {
 	it('muestra el shell inicial de Sacré', () => {
-		render(<HomePage />);
+		renderHomePage();
 
 		expect(
 			screen.getByRole('heading', { level: 1, name: /sacré/i })
 		).toBeInTheDocument();
-		expect(
-			screen.getByRole('navigation', { name: 'Navegacion principal' })
-		).toBeInTheDocument();
 	});
 
-	it('integra catalogo, about y footer del Batch 2', () => {
-		render(<HomePage />);
+	it('integra catalogo y about del Batch 2', () => {
+		renderHomePage();
 
 		expect(
 			screen.getByRole('heading', { name: 'Nuestras colecciones' })
@@ -22,20 +28,11 @@ describe('HomePage', () => {
 		expect(
 			screen.getByRole('heading', { name: 'Fe hecha arte' })
 		).toBeInTheDocument();
-		expect(
-			within(screen.getByRole('contentinfo')).getByRole('heading', {
-				level: 2,
-				name: 'Sacré',
-			})
-		).toBeInTheDocument();
 	});
 
 	it('expone accesos al catalogo sin flujos de carrito', () => {
-		render(<HomePage />);
+		renderHomePage();
 
-		expect(
-			screen.getAllByRole('link', { name: 'Catalogo' }).length
-		).toBeGreaterThan(0);
 		expect(
 			screen.getByRole('link', { name: 'Ir al catalogo' })
 		).toHaveAttribute('href', '/catalogo');

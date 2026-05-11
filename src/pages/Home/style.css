@@ -4,10 +4,6 @@
 	background: var(--color-bg);
 }
 
-.home-page__main {
-	min-height: 100svh;
-}
-
 .home-page section {
 	scroll-margin-top: calc(var(--header-height) + 24px);
 }

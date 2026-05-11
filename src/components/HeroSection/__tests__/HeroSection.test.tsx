@@ -1,9 +1,18 @@
 import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { HeroSection } from '../HeroSection';
+
+function renderHeroSection() {
+	render(
+		<MemoryRouter>
+			<HeroSection />
+		</MemoryRouter>
+	);
+}
 
 describe('HeroSection', () => {
 	it('muestra la marca y propuesta editorial', () => {
-		render(<HeroSection />);
+		renderHeroSection();
 
 		expect(
 			screen.getByRole('heading', { level: 1, name: /sacré/i })
@@ -14,7 +23,7 @@ describe('HeroSection', () => {
 	});
 
 	it('muestra CTAs accesibles hacia las secciones futuras', () => {
-		render(<HeroSection />);
+		renderHeroSection();
 
 		expect(
 			screen.getByRole('link', { name: 'Ver colecciones' })

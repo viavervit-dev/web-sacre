@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { type MouseEvent, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './style.css';
 
 const navLinks = [
@@ -18,6 +19,7 @@ export function SiteHeader({
 	themeMode = 'dark',
 	onToggleTheme,
 }: SiteHeaderProps) {
+	const location = useLocation();
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const themeLabel =
 		themeMode === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro';
@@ -26,21 +28,54 @@ export function SiteHeader({
 		setIsMenuOpen(false);
 	}
 
+	function handleInternalLinkClick(
+		href: string,
+		event: MouseEvent<HTMLAnchorElement>
+	) {
+		closeMenu();
+
+		const [pathname, hash] = href.split('#');
+		const targetPath = pathname || location.pathname;
+
+		if (!hash || targetPath !== location.pathname) {
+			return;
+		}
+
+		const target = document.getElementById(decodeURIComponent(hash));
+
+		if (!target || typeof target.scrollIntoView !== 'function') {
+			return;
+		}
+
+		event.preventDefault();
+		window.history.pushState(null, '', href);
+		target.scrollIntoView({ block: 'start' });
+	}
+
 	return (
 		<header className="site-header">
 			<div className="site-header__inner sacre-container">
-				<a className="site-header__brand" href="/#hero" onClick={closeMenu}>
+				<Link
+					className="site-header__brand"
+					to="/#hero"
+					onClick={event => handleInternalLinkClick('/#hero', event)}
+				>
 					<span className="site-header__brand-name">Sacré</span>
 					<span className="site-header__brand-tagline">
 						Articulos sacramentales
 					</span>
-				</a>
+				</Link>
 
 				<nav className="site-header__nav" aria-label="Navegacion principal">
 					{navLinks.map(link => (
-						<a key={link.href} className="site-header__link" href={link.href}>
+						<Link
+							key={link.href}
+							className="site-header__link"
+							to={link.href}
+							onClick={event => handleInternalLinkClick(link.href, event)}
+						>
 							{link.label}
-						</a>
+						</Link>
 					))}
 				</nav>
 
@@ -82,14 +117,14 @@ export function SiteHeader({
 				hidden={!isMenuOpen}
 			>
 				{navLinks.map(link => (
-					<a
+					<Link
 						key={link.href}
 						className="site-header__mobile-link"
-						href={link.href}
-						onClick={closeMenu}
+						to={link.href}
+						onClick={event => handleInternalLinkClick(link.href, event)}
 					>
 						{link.label}
-					</a>
+					</Link>
 				))}
 			</nav>
 		</header>

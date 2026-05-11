@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import './style.css';
 
 const heroEase = [0.16, 1, 0.3, 1] as const;
@@ -71,12 +72,12 @@ export function HeroSection() {
 					>
 						Ver colecciones
 					</a>
-					<a
+					<Link
 						className="hero-section__cta hero-section__cta--secondary"
-						href="/catalogo"
+						to="/catalogo"
 					>
 						Ir al catalogo
-					</a>
+					</Link>
 				</motion.div>
 			</motion.div>
 		</section>

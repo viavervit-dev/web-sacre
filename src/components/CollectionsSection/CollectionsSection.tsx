@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
 	ProductCard,
 	type ProductCardProduct,
@@ -161,9 +162,9 @@ export function CollectionsSection() {
 							/>
 						</button>
 					) : null}
-					<a className="collections-section__catalog-link" href="/catalogo">
+					<Link className="collections-section__catalog-link" to="/catalogo">
 						Ir al catalogo completo
-					</a>
+					</Link>
 				</div>
 			</div>
 		</section>

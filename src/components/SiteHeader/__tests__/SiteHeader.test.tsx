@@ -1,10 +1,15 @@
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { MemoryRouter } from 'react-router-dom';
 import { SiteHeader } from '../SiteHeader';
+
+function renderSiteHeader(ui = <SiteHeader />, initialEntries = ['/']) {
+	render(<MemoryRouter initialEntries={initialEntries}>{ui}</MemoryRouter>);
+}
 
 describe('SiteHeader', () => {
 	it('muestra la marca y los links principales', () => {
-		render(<SiteHeader />);
+		renderSiteHeader();
 		const nav = screen.getByRole('navigation', {
 			name: 'Navegacion principal',
 		});
@@ -28,7 +33,7 @@ describe('SiteHeader', () => {
 
 	it('expone el menu mobile con estado accesible', async () => {
 		const user = userEvent.setup();
-		render(<SiteHeader />);
+		renderSiteHeader();
 		const menuButton = screen.getByRole('button', { name: 'Abrir menu' });
 
 		expect(menuButton).toHaveAttribute('aria-expanded', 'false');
@@ -41,7 +46,7 @@ describe('SiteHeader', () => {
 	});
 
 	it('muestra un unico acceso al catalogo en la navegacion principal', () => {
-		render(<SiteHeader />);
+		renderSiteHeader();
 
 		expect(screen.getAllByRole('link', { name: 'Catalogo' })).toHaveLength(1);
 	});
@@ -49,12 +54,29 @@ describe('SiteHeader', () => {
 	it('expone un boton para alternar el modo visual', async () => {
 		const user = userEvent.setup();
 		const onToggleTheme = vi.fn();
-		render(<SiteHeader themeMode="dark" onToggleTheme={onToggleTheme} />);
+		renderSiteHeader(
+			<SiteHeader themeMode="dark" onToggleTheme={onToggleTheme} />
+		);
 
 		await user.click(
 			screen.getByRole('button', { name: 'Cambiar a modo claro' })
 		);
 
 		expect(onToggleTheme).toHaveBeenCalledTimes(1);
+	});
+
+	it('resuelve hashes de la pagina actual sin delegar una navegacion nueva', async () => {
+		const user = userEvent.setup();
+		const target = document.createElement('section');
+		const scrollIntoView = vi.fn();
+		target.id = 'collections';
+		target.scrollIntoView = scrollIntoView;
+		document.body.append(target);
+
+		renderSiteHeader();
+		await user.click(screen.getByRole('link', { name: 'Colecciones' }));
+
+		expect(scrollIntoView).toHaveBeenCalledWith({ block: 'start' });
+		target.remove();
 	});
 });

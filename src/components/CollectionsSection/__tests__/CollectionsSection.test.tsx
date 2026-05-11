@@ -1,10 +1,19 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { MemoryRouter } from 'react-router-dom';
 import { CollectionsSection } from '../CollectionsSection';
+
+function renderCollectionsSection() {
+	render(
+		<MemoryRouter>
+			<CollectionsSection />
+		</MemoryRouter>
+	);
+}
 
 describe('CollectionsSection', () => {
 	it('muestra la coleccion inicial con productos editoriales', () => {
-		render(<CollectionsSection />);
+		renderCollectionsSection();
 
 		expect(
 			screen.getByRole('heading', { level: 2, name: 'Nuestras colecciones' })
@@ -19,7 +28,7 @@ describe('CollectionsSection', () => {
 
 	it('permite mostrar mas y menos productos con estado accesible', async () => {
 		const user = userEvent.setup();
-		render(<CollectionsSection />);
+		renderCollectionsSection();
 		const toggle = screen.getByRole('button', { name: 'Ver mas productos' });
 
 		expect(toggle).toHaveAttribute('aria-expanded', 'false');
@@ -34,7 +43,7 @@ describe('CollectionsSection', () => {
 	});
 
 	it('expone un acceso directo al catalogo', () => {
-		render(<CollectionsSection />);
+		renderCollectionsSection();
 
 		expect(
 			screen.getByRole('link', { name: 'Ir al catalogo completo' })

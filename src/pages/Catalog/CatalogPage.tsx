@@ -1,15 +1,9 @@
-import { SiteFooter } from '@/components/SiteFooter/SiteFooter';
-import { SiteHeader } from '@/components/SiteHeader/SiteHeader';
-import { useThemeStore } from '@/stores/useThemeStore';
+import { Link } from 'react-router-dom';
 import './style.css';
 
 export function CatalogPage() {
-	const themeMode = useThemeStore(state => state.mode);
-	const toggleThemeMode = useThemeStore(state => state.toggleMode);
-
 	return (
 		<div className="catalog-page">
-			<SiteHeader themeMode={themeMode} onToggleTheme={toggleThemeMode} />
 			<main className="catalog-page__main">
 				<section
 					className="catalog-page__panel"
@@ -26,12 +20,11 @@ export function CatalogPage() {
 						Este espacio va a concentrar todo el inventario y filtros. Por
 						ahora, este placeholder nos confirma que la navegacion funciona.
 					</p>
-					<a className="catalog-page__link" href="/#collections">
+					<Link className="catalog-page__link" to="/#collections">
 						Volver al inicio
-					</a>
+					</Link>
 				</section>
 			</main>
-			<SiteFooter />
 		</div>
 	);
 }
