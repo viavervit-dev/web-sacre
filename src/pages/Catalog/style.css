@@ -131,11 +131,18 @@
 }
 
 :root[data-theme='light'] .catalog-page__eyebrow {
-	color: var(--color-accent-scarlet);
+	color: #7d1230;
+}
+
+:root[data-theme='light'] .catalog-page__title.text-gold-gradient {
+	background: linear-gradient(135deg, #1f3555 0%, #432b0e 52%, #7d1230 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
 }
 
 :root[data-theme='light'] .catalog-page__lead {
-	color: #3a2c1f;
+	color: #1f1711;
 }
 
 :root[data-theme='light'] .catalog-page__empty {
