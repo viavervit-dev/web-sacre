@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { NotFoundPage } from '../NotFoundPage';
 
 describe('NotFoundPage', () => {
-	it('muestra el mensaje editorial de pagina no encontrada', () => {
+	it('muestra el mensaje de pagina no encontrada', () => {
 		render(
 			<MemoryRouter>
 				<NotFoundPage />
@@ -11,9 +11,10 @@ describe('NotFoundPage', () => {
 		);
 
 		expect(
-			screen.getByRole('heading', { name: /umbral no encontrado/i })
+			screen.getByRole('heading', { name: /página no encontrada/i })
 		).toBeInTheDocument();
 		expect(screen.getByText('Error 404')).toBeInTheDocument();
+		expect(screen.getByText(/no encontramos la página/i)).toBeInTheDocument();
 	});
 
 	it('muestra el link de regreso al inicio', () => {
