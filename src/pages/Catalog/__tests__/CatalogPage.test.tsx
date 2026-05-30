@@ -17,7 +17,7 @@ describe('CatalogPage', () => {
 		expect(
 			screen.getByRole('heading', {
 				level: 1,
-				name: 'Piezas devocionales de Sacre',
+				name: 'Piezas devocionales de Sacré',
 			})
 		).toBeInTheDocument();
 		expect(
