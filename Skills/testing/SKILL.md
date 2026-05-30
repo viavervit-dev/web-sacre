@@ -1,7 +1,7 @@
 ---
 name: testing
 description: >
-  Convenciones para escribir tests con Vitest y Testing Library en Sacre.
+  Convenciones para escribir tests con Vitest y Testing Library en Sacré.
   Trigger: al crear un test nuevo, modificar uno existente o agregar cobertura a un componente.
 license: Apache-2.0
 metadata:
@@ -47,11 +47,11 @@ metadata:
 
    ```tsx
    // correcto
-   screen.getByRole('heading', { name: 'Sacre' })
+   screen.getByRole('heading', { name: 'Sacré' })
    screen.getByRole('link', { name: /volver al inicio/i })
 
    // evitar
-   screen.getByText('Sacre')
+   screen.getByText('Sacré')
    screen.getByTestId('heading-sacre')
    ```
 

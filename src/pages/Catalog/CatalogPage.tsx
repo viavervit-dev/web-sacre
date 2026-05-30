@@ -50,7 +50,7 @@ export function CatalogPage() {
 						id="catalog-title"
 						className="catalog-page__title text-gold-gradient"
 					>
-						Piezas devocionales de Sacre
+						Piezas devocionales de Sacré
 					</h1>
 					<p className="catalog-page__lead">
 						Una seleccion para explorar con calma. Filtra por categoria, precio

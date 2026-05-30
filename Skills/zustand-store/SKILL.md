@@ -1,7 +1,7 @@
 ---
 name: zustand-store
 description: >
-  Convenciones para crear y modificar stores de Zustand en Sacre.
+  Convenciones para crear y modificar stores de Zustand en Sacré.
   Trigger: al crear un store nuevo, modificar uno existente o decidir si un estado debe ser global o local.
 license: Apache-2.0
 metadata:

@@ -1,6 +1,6 @@
-# Sacre — Tienda de Artículos Religiosos
+# Sacré — Tienda de Artículos Religiosos
 
-Frontend de la tienda online **Sacre**, especializada en la venta de artículos de devoción y regalo: medallitas, rosarios, crucifijos, estampas y más.
+Frontend de la tienda online **Sacré**, especializada en la venta de artículos de devoción y regalo: medallitas, rosarios, crucifijos, estampas y más.
 
 ## Stack
 

@@ -1,7 +1,7 @@
 ---
 name: commits
 description: >
-  Convenciones para escribir commits en Sacre siguiendo el formato de commitlint.
+  Convenciones para escribir commits en Sacré siguiendo el formato de commitlint.
   Trigger: al crear un commit, revisar el historial o decidir como dividir cambios en commits.
 license: Apache-2.0
 metadata:
