@@ -2,6 +2,18 @@
 
 Reglas operativas para agentes que trabajen en este repo. Sin ruido: solo lo no obvio.
 
+## Contexto de Sacré
+
+Vale para toda tarea en este repo.
+
+1. **Nombre**: "Sacré" viene del francés, significa "sagrado" y está relacionado con el Sagrado Corazón de Jesús. Lleva siempre tilde en la "é". Los identificadores técnicos (repos, paquetes, clases CSS, claves de almacenamiento) quedan como están.
+2. **Qué es**: un apostolado autosostenible. Lo más importante es el propósito del apostolado, no tanto el modelo de negocio (tienda virtual).
+3. **Doctrina**: Sacré está alineado en su totalidad con la doctrina de la Iglesia católica.
+4. **Dedicación**: toda actividad de Sacré se dedica y se consagra al Sagrado Corazón de Jesús.
+5. **Productos**: cada producto está alineado con el propósito de Sacré.
+6. **Lenguaje**: el contexto del lenguaje es Ecuador. Ver `Skills/ecuador-copy/SKILL.md`.
+7. **Límite**: no se usa ninguna información que vaya en contra del alineamiento de Sacré.
+
 ## Stack
 
 - React 19 + TypeScript
