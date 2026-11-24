@@ -1,6 +1,6 @@
 # Glosario de copy para Ecuador
 
-Fuentes leídas el 2026-11-24, salvo las marcadas como no leídas. Este archivo es idéntico en `admin-panel-sacre` y `web-sacre`.
+Fuentes leídas el 2026-11-24. Este archivo es idéntico en `admin-panel-sacre` y `web-sacre`.
 
 ## Términos que no se usan
 
@@ -58,17 +58,17 @@ No afirmar hasta leer la fuente:
 
 ## Barridos
 
-Una coincidencia se revisa en su contexto; no es un error por sí sola.
+Una coincidencia se revisa en su contexto; no es un error por sí sola. Un barrido vacío tampoco alcanza: "limpia" como rito y "efectivo" por una novena se revisan a mano, porque también son palabras comunes.
 
 ```bash
 # Doctrina
-git grep -nIiE 'santer(o|a|í|i)|amulet|talism|hechi(z|c)|m(a|á)gic|esot(e|é)r|energ(i|í)a|suerte|adora|(i|í)dolo|reliquia|ritual|sacramental|protector|milagro|bendec|bendit|infalible|sahumer' -- src index.html ':!**/__tests__/**'
+git grep -nIiE 'santer(o|a|í|i)|amulet|talism|hechi(z|c)|m(a|á)gic|esot(e|é)r|energ(i|í)a|suerte|adora|(i|í)dolo|reliquia|ritual|sacramental|protector|milagro|bendec|bendit|infalible|garantizad|sahumer|amarre|mal de ojo|muñec|figurita|santa muerte|sanador|lux perpetua|luz perpetua|descanso eterno' -- src index.html ':!**/__tests__/**'
 
 # Voseo: verbos agudos y con pronombre (requiere git con PCRE y locale UTF-8)
 LC_ALL=C.UTF-8 git grep -nIP '(*UCP)\b(?!(?i:está|esté|estás|qué|así|más|después|demás|través|sí|país|aquí|allí|ahí)\b)\w+(á|é|í|ás|és|ís)\b|(?i)\b(vos|acá|copialo|cambialo|fijate|asegurate)\b' -- src index.html ':!*.md'
 
 # Regionalismos
-git grep -nIiE '\b(remito|vidriera|talle|rubro)\b' -- src index.html ':!*.md'
+LC_ALL=C.UTF-8 git grep -nIiP '(*UCP)\b(remito|vidriera|talle|rubro|santito|chévere|bacán|ñaño)s?\b' -- src index.html ':!*.md'
 ```
 
 ## Fuentes
@@ -86,6 +86,6 @@ git grep -nIiE '\b(remito|vidriera|talle|rubro)\b' -- src index.html ':!*.md'
 - [Wikipedia]: https://en.wikipedia.org/wiki/Ecuadorian_Spanish
 - [Fybeca]: https://www.fybeca.com/
 - [Pichincha]: https://www.pichincha.com/
-- [SRI]: guía de remisión, fuente secundaria y página no leída (solo el resumen del buscador); confirmar en sri.gob.ec antes de usar el término. https://www.siigo.com/ec/blog/obligaciones-fiscales/que-es-una-guia-de-remision/
+- [SRI]: guía de remisión entre los comprobantes electrónicos. https://www.sri.gob.ec/facturacion-electronica y el Reglamento de Comprobantes de Venta y Retención, art. 24. https://ecuador.justia.com/nacionales/reglamentos/reglamento-de-comprobantes-de-venta-y-retencion/gdoc
 - [ACI Prensa]: https://www.aciprensa.com/noticias/75645/el-vaticano-inaugura-un-mosaico-de-la-virgen-del-quinche-patrona-del-ecuador
 - [GCatholic]: https://www.gcatholic.org/saints/data/country-EC.htm
