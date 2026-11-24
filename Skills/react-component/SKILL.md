@@ -1,7 +1,7 @@
 ---
 name: react-component
 description: >
-  Convenciones para crear y modificar componentes React en Sacre.
+  Convenciones para crear y modificar componentes React en Sacré.
   Trigger: al crear un componente nuevo, modificar uno existente o revisar estructura de un archivo .tsx.
 license: Apache-2.0
 metadata:

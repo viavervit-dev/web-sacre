@@ -1,7 +1,7 @@
 ---
 name: pull-request
 description: >
-  Convenciones para abrir y revisar Pull Requests en Sacre (GitHub).
+  Convenciones para abrir y revisar Pull Requests en Sacré (GitHub).
   Trigger: al abrir un PR, revisar uno existente o decidir cuando una rama esta lista para integrar.
 license: Apache-2.0
 metadata:

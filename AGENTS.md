@@ -1,4 +1,4 @@
-# AGENTS.md — Sacre
+# AGENTS.md — Sacré
 
 Reglas operativas para agentes que trabajen en este repo. Sin ruido: solo lo no obvio.
 

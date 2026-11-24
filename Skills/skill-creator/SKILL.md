@@ -1,7 +1,7 @@
 ---
 name: skill-creator
 description: >
-  Crea skills nuevas en formato moderno para Sacre. Usar cuando se pida
+  Crea skills nuevas en formato moderno para Sacré. Usar cuando se pida
   crear una skill, adaptar una existente o estandarizar estructura
   Skills/<nombre>/SKILL.md con metadata valida y enfoque anti-ruido.
 license: Apache-2.0
@@ -30,7 +30,7 @@ metadata:
 
 ## Cuando usar
 
-- Crear una skill reutilizable para el proyecto Sacre.
+- Crear una skill reutilizable para el proyecto Sacré.
 - Adaptar una skill existente al formato moderno con frontmatter.
 - Estandarizar estructura y metadata para auto-activacion.
 
