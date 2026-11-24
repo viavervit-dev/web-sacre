@@ -56,8 +56,8 @@ export function HeroSection() {
 					animate={{ opacity: 1 }}
 					transition={{ duration: 0.72, delay: 0.9, ease: heroEase }}
 				>
-					Medallitas y articulos sacramentales elegidos con devocion, inspirados
-					en siglos de arte, fe y belleza catolica.
+					Medallitas y artículos religiosos elegidos con devoción, inspirados en
+					siglos de arte, fe y belleza católica.
 				</motion.p>
 				<motion.div
 					className="hero-section__actions"

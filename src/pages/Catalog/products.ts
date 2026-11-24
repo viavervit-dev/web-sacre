@@ -90,7 +90,7 @@ export const catalogProducts: ProductCardProduct[] = [
 		title: 'San Miguel Arcangel',
 		subtitle: 'Protectores Celestiales',
 		description:
-			'Medallon protector con presencia de coleccion, creado para acompanar camino y oracion.',
+			'Medallón de san Miguel con presencia de colección, creado para acompañar el camino y la oración.',
 		price: 95000,
 		image: medalAngelUrl,
 	},
@@ -99,7 +99,7 @@ export const catalogProducts: ProductCardProduct[] = [
 		title: 'Angel de la Guarda',
 		subtitle: 'Protectores Celestiales',
 		description:
-			'Una medalla serena para bendecir hogares, viajes y vinculos queridos.',
+			'Una medalla serena para recordar la compañía del Ángel de la Guarda en el hogar y en los viajes.',
 		price: 70000,
 		image: medalAngelUrl,
 	},
@@ -108,7 +108,7 @@ export const catalogProducts: ProductCardProduct[] = [
 		title: 'San Rafael Arcangel',
 		subtitle: 'Protectores Celestiales',
 		description:
-			'Pieza dedicada al sanador celestial, lineas sutiles y simbolo del pez en relieve.',
+			'Pieza dedicada a san Rafael, con líneas sutiles y el símbolo del pez en relieve.',
 		price: 88000,
 		image: medalAngelUrl,
 	},
@@ -117,7 +117,7 @@ export const catalogProducts: ProductCardProduct[] = [
 		title: 'Rosario de Nacar',
 		subtitle: 'Oracion y Meditacion',
 		description:
-			'Rosario artesanal con cuentas luminosas y terminacion dorada para rituales cotidianos.',
+			'Rosario artesanal con cuentas luminosas y terminación dorada para la oración cotidiana.',
 		price: 145000,
 		image: rosaryUrl,
 		badge: 'Edicion limitada',
@@ -146,7 +146,7 @@ export const catalogProducts: ProductCardProduct[] = [
 		title: 'Medalla de San Benito',
 		subtitle: 'Protectores Celestiales',
 		description:
-			'Iconografia tradicional con inscripciones latinas, pensada como amuleto de proteccion.',
+			'Iconografía tradicional con inscripciones latinas, pensada como signo de fe y oración.',
 		price: 54000,
 		image: medalAngelUrl,
 	},

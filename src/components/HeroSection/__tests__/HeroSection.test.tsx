@@ -18,7 +18,7 @@ describe('HeroSection', () => {
 			screen.getByRole('heading', { level: 1, name: /sacré/i })
 		).toBeInTheDocument();
 		expect(
-			screen.getByText(/Medallitas y articulos sacramentales/i)
+			screen.getByText(/Medallitas y artículos religiosos/i)
 		).toBeInTheDocument();
 	});
 

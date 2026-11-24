@@ -62,7 +62,7 @@ export function SiteHeader({
 				>
 					<span className="site-header__brand-name">Sacré</span>
 					<span className="site-header__brand-tagline">
-						Articulos sacramentales
+						Artículos religiosos
 					</span>
 				</Link>
 

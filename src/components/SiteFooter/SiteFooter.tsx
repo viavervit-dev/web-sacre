@@ -17,7 +17,7 @@ export function SiteFooter() {
 					>
 						Sacré
 					</h2>
-					<p className="site-footer__tagline">Articulos sacramentales</p>
+					<p className="site-footer__tagline">Artículos religiosos</p>
 				</div>
 
 				<blockquote className="site-footer__quote">
