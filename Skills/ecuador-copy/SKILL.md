@@ -4,7 +4,7 @@ description: "Regla de copy para Ecuador en Sacré Web: español neutro, sin mod
 license: Apache-2.0
 metadata:
   author: ignadev
-  version: '1.0.0'
+  version: '1.0.1'
   scope:
     - root
   auto_invoke:
@@ -61,7 +61,7 @@ No usar para identificadores, comentarios ni commits.
 
 ## Execution Steps
 
-1. Leer `references/glosario-ecuador.md`.
+1. Leer la sección "Contexto de Sacré" de `AGENTS.md` y `references/glosario-ecuador.md`.
 2. Listar los textos visibles que el cambio agrega o modifica, incluidos los accesibles.
 3. Marcar los términos religiosos, devocionales o regionales.
 4. Investigar los que no estén en el glosario, en este orden: acepción marcada `Ec` en el Diccionario de americanismos, texto oficial en vatican.va o de la Conferencia Episcopal Ecuatoriana, y uso real en medios o comercios de Ecuador.
@@ -75,5 +75,6 @@ Reportar: textos antes y después, términos investigados con su URL, entradas a
 
 ## References
 
+- `AGENTS.md` — contexto de Sacré: nombre, propósito y límites.
 - `references/glosario-ecuador.md` — términos, reemplazos, fuentes y barridos. Es el mismo archivo en `admin-panel-sacre`: un cambio se replica en los dos repos.
 - `Skills/react-component/SKILL.md` — estructura de los componentes que muestran el texto.
