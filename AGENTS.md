@@ -34,6 +34,7 @@ Si dos fuentes se contradicen, gana la de mayor precedencia.
 4. **Tests en `__tests__/`** dentro de la carpeta del modulo que testean.
 5. **Commits sin scope**, todo en minusculas, tipo valido segun `commitlint.config.cjs`.
 6. **Prohibido `style` como tipo de commit** — en Conventional Commits refiere al estilo/formato del codigo, no al CSS. Para cambios visuales usar `refactor` si ajusta implementacion existente o `add` si incorpora una pieza nueva.
+7. **Copy para Ecuador** — todo texto visible se escribe en español neutro para Ecuador, sin modismos y sin terminos que choquen con la doctrina catolica. Ver `Skills/ecuador-copy/SKILL.md`.
 
 ## Reglas de agentes
 
@@ -52,5 +53,6 @@ Si dos fuentes se contradicen, gana la de mayor precedencia.
 | `Skills/zustand-store/SKILL.md`    | Crear o modificar stores de Zustand         |
 | `Skills/commits/SKILL.md`          | Escribir o revisar mensajes de commit       |
 | `Skills/pull-request/SKILL.md`     | Abrir o revisar un Pull Request en GitHub   |
+| `Skills/ecuador-copy/SKILL.md`     | Escribir, cambiar o revisar cualquier texto visible |
 | `Skills/skill-creator/SKILL.md`    | Crear una skill nueva para el proyecto      |
 | `Skills/skill-sync/SKILL.md`       | Auditar y sincronizar skills con AGENTS.md  |

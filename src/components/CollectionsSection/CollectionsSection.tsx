@@ -54,7 +54,7 @@ const products: ProductCardProduct[] = [
 		title: 'San Miguel Arcangel',
 		subtitle: 'Protectores Celestiales',
 		description:
-			'Medallon protector con presencia de coleccion, creado para acompanar camino y oracion.',
+			'Medallón de san Miguel con presencia de colección, creado para acompañar el camino y la oración.',
 		price: 95000,
 		image: medalAngelUrl,
 	},
@@ -63,7 +63,7 @@ const products: ProductCardProduct[] = [
 		title: 'Rosario de Nacar',
 		subtitle: 'Oracion y Meditacion',
 		description:
-			'Rosario artesanal con cuentas luminosas y terminacion dorada para rituales cotidianos.',
+			'Rosario artesanal con cuentas luminosas y terminación dorada para la oración cotidiana.',
 		price: 145000,
 		image: rosaryUrl,
 		badge: 'Edicion limitada',
@@ -91,7 +91,7 @@ const products: ProductCardProduct[] = [
 		title: 'Angel de la Guarda',
 		subtitle: 'Protectores Celestiales',
 		description:
-			'Una medalla serena para bendecir hogares, viajes y vinculos queridos.',
+			'Una medalla serena para recordar la compañía del Ángel de la Guarda en el hogar y en los viajes.',
 		price: 70000,
 		image: medalAngelUrl,
 	},

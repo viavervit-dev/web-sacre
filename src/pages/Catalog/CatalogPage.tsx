@@ -85,7 +85,7 @@ export function CatalogPage() {
 								No encontramos piezas con esos filtros
 							</p>
 							<p className="catalog-page__empty-lead">
-								Probá ampliar el rango de precio o limpiar la busqueda.
+								Prueba con un rango de precio más amplio o limpia la búsqueda.
 							</p>
 							<button
 								type="button"

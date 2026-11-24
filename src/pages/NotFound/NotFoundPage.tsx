@@ -18,7 +18,7 @@ export function NotFoundPage() {
 						Página no encontrada
 					</h1>
 					<p className="not-found-page__lead">
-						No encontramos la página que buscás. Volvé al inicio para seguir
+						No encontramos la página que buscas. Vuelve al inicio para seguir
 						recorriendo Sacré.
 					</p>
 					<Link className="not-found-page__link" to="/">

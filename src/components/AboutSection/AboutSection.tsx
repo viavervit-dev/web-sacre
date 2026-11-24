@@ -12,7 +12,7 @@ const values = [
 	{
 		title: 'Artesania',
 		description:
-			'Metales nobles, volumen cuidado y terminaciones pensadas para sentirse como reliquia familiar.',
+			'Metales nobles, volumen cuidado y terminaciones pensadas para sentirse como un recuerdo de familia.',
 	},
 	{
 		title: 'Devocion',
